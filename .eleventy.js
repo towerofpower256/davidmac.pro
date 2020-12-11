@@ -18,6 +18,21 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
+  //eleventyConfig.addPassthroughCopy("img");
+  //eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("./src/**/*.jpg");
+  eleventyConfig.addPassthroughCopy("./src/**/*.png");
+  eleventyConfig.addPassthroughCopy("./src/**/*.gif");
+  eleventyConfig.addPassthroughCopy("./src/**/*.mp4");
+  eleventyConfig.addPassthroughCopy("./src/**/*.pdf");
+  eleventyConfig.addPassthroughCopy("./src/**/*.mmd");
+  eleventyConfig.addPassthroughCopy("./src/**/*.xml");
+  eleventyConfig.addPassthroughCopy("./src/**/*.xslx");
+
+  eleventyConfig.addWatchTarget("assets");
+
+
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
@@ -70,18 +85,6 @@ module.exports = function(eleventyConfig) {
     // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet];
   });
-
-  //eleventyConfig.addPassthroughCopy("img");
-  //eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("./src/**/*.jpg");
-  eleventyConfig.addPassthroughCopy("./src/**/*.png");
-  eleventyConfig.addPassthroughCopy("./src/**/*.gif");
-  eleventyConfig.addPassthroughCopy("./src/**/*.mp4");
-  eleventyConfig.addPassthroughCopy("./src/**/*.pdf");
-  eleventyConfig.addPassthroughCopy("./src/**/*.mmd");
-  eleventyConfig.addPassthroughCopy("./src/**/*.xml");
-  eleventyConfig.addPassthroughCopy("./src/**/*.xslx");
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
