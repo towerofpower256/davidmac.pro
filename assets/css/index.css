@@ -135,6 +135,9 @@
   .nav-item {
     display: inline-block;
     margin-right: 1em;
+    border-right: solid #000 1px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
   .nav-item a[href]:not(:hover) {
     text-decoration: none;
@@ -242,4 +245,14 @@ code .highlight-line:before {
   text-align: right;
   /*width: 2.4em;*/
   width: 0.5em;
+}
+
+.header-logo {
+  background-image: url("/assets/img/my\ face.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 50px;
+  min-width: 80px;
+  float: left;
 }
