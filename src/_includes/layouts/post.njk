@@ -1,15 +1,24 @@
 ---
 layout: layouts/base.njk
 templateClass: tmpl-post
+image: featured.jpg
+imageThumbnail: featured-thumbnail.jpg
 ---
-<h1>{{ title }}</h1>
+<div class="container post-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{ title }}</h1>
 
-{{ content | safe }}
+      {{ content | safe }}
 
-<hr>
-<ul>
-  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-  {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-  {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-</ul>
+      <hr>
+      <ul>
+        {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+        {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+        {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+        {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+  
+</div>

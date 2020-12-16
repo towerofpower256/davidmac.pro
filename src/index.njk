@@ -5,11 +5,46 @@ eleventyNavigation:
   order: 1
 ---
 
-{% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+<div class="flex-fill home-splash">
+  <div class="home-splash-content">
+    <h1>{{ metadata.splash.name}}</h1>
+    <h2>{{ metadata.splash.description}}</h2>
+  </div>
+</div>
 
-{% set postslist = collections.posts | head(-3) %}
-{% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
+<div class="container home-content">
+  <div class="row">
+    <div class="col-md-8">
+      {% set maxPosts = collections.posts.length | min(9) %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+      {% set postslist = collections.posts | head(-9) %}
+      {% set postslistCounter = collections.posts | length %}
+
+      {% include "postboard.njk" %} 
+
+      <p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+    </div>
+    <div class="col-md-4">
+      <div class="card aboutshort">
+        <div class="card-header">
+          About me
+        </div>
+        <div class="card-body">
+          <p>
+            My name is David McDonald, an Australian with a taste for:
+          </p>
+            <ul>
+              <li>Software development</li>
+              <li>Electronics</li>
+              <li>Most things nerdy</li>
+            </ul>
+          <p>
+            For software development, my career focus is on <a href="https://www.servicenow.com">ServiceNow</a>, but I'm also interested in C#, web design, and C++ for programming Arudinos in my spare time.
+          </p>
+
+        </div>
+      </div>
+    <div>
+  </div>
+</div>
+

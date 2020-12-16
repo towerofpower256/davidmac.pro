@@ -1,1 +1,31 @@
-<footer></footer>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="footer-copyright">David McDonald &#169; {{ page.date.getFullYear() }}</div>
+                <div class="footer-social d-flex flex-row justify-content-center">
+                    <div class="p-2 social-item">
+                        <a href="/feed/feed.xml" target="_blank">
+                            <i class="bi bi-rss"></i> RSS
+                        </a>
+                    </div>
+                    <div class="p-2 social-item">
+                        <a href="{{ metadata.social.linkedin }}" target="_blank">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                    <div class="p-2 social-item">
+                        <a href="{{ metadata.social.github }}" target="_blank">
+                            <i class="bi bi-github"></i> Github
+                        </a>
+                    </div>
+                    <div class="p-2 social-item">
+                        <a href="{{ metadata.social.servicenow }}" target="_blank">
+                            <img src="/assets/img/servicenow-icon-white.png" width="18px" height="18px" alt=""/> ServiceNow
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

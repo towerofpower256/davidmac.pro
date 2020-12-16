@@ -1,5 +1,9 @@
 {
-    "tags": [
-      "posts"
-    ]
-  }
+  "layout": "layouts/post.njk",
+  "passthroughFiles": ["*.(jpg|png)"],
+  "tags": [
+    "posts"
+  ],
+  "imageWidth": "1024",
+  "imageHeight": "512"
+}
