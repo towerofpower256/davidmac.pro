@@ -4,10 +4,16 @@
     <div class="card h-100">
       <div class="card-body">
         <a href="{{ post.url }}">
-          <div class="postboard-thumbnail"
-            style="background-image: url({{ post.url }}{{ post.data.imageThumbnail }})">
-            
-          </div>
+          {{post.data.imageThumbnail}}
+          {% if post.data.imageThumbnail == "" %}
+            <div class="postboard-thumbnail bi bi-image"></div>
+          {% endif %}
+          {% if post.data.imageThumbnail != "" %}
+            <div class="postboard-thumbnail"
+              style="background-image: url({{ post.url }}{{ post.data.imageThumbnail }})">
+              
+            </div>
+          {% endif %}
         </a>
         <h5 class="card-title">
           <a href="{{ post.url }}">{{ post.data.title }}</a>
