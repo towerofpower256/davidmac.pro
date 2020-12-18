@@ -9,6 +9,7 @@
   --white: #fff;
   --footer-height: 5em;
   --footer-bg: #2D3748;
+  --card-margin: 10px;
 }
 * {
   box-sizing: border-box;
@@ -46,8 +47,13 @@ p:last-child {
   background-color: white;
   height: 100%;
 }
-.post-container .container {
+.post-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
   height: 100%;
+}
+.post-nav-action {
+  font-weight: bold;
 }
 
 p,
@@ -310,13 +316,17 @@ code .highlight-line:before {
   padding-top: 3em;
 }
 
+.home-content .card {
+  margin-bottom: var(--card-margin);
+}
+
 /* Postboard stuff */
 .postboard {
 
 }
 
 .postboard-card{
-  margin-bottom: 10px;
+  margin-bottom: var(--card-margin);
 }
 
 .postboard-tags {
@@ -324,13 +334,14 @@ code .highlight-line:before {
 }
 
 .postboard-thumbnail {
-  height: 10em;
+  height: 100px;
+  width: 100px;
   float: left;
-  width: 150px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   margin: 5px;
+  margin-right: 20px;
 }
 
 /* Footer stuff */
