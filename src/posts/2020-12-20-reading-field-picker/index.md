@@ -1,11 +1,13 @@
 ---
 title: Using a Field List to get data from a GlideRecord
 description: So you've got a dot-walked value from a Field List field. How do you use that to get data out of a ServiceNow GlideRecord?
-image: featured-thumbnail.png
-imageThumbnail: featured.png
+image: featured.jpg
+imageThumbnail: featured-thumbnail.jpg
 date: 2020-12-20
 tags:
 - ServiceNow
+- Coding
+- Solution
 ---
 
 In ServiceNow there are special fields called **Field List** fields which allow you to select fields from a table. These fields also allow you to dot-walk down into fields on related tables. For example, on an **incident** table you can select:
@@ -13,22 +15,24 @@ In ServiceNow there are special fields called **Field List** fields which allow 
 which would look like
 `assigned_to.department.dept_head`
 
+In essence, it lets you dot-walking without having to hard-code the fields to dot-walk through.
+
 I've used these **Field List** fields in other projects, such as a custom approval engine which allowed users to send approval requests to users within related fields on a request.
 
 You'll most likely come across these on configurable rules such as Notifications where you can select fields that contain users or groups to send the notification out to.
 
-![]("./image-1.png")
+![](./image-1.png)
 
 Here's what that same field looks like when it's opened or unlocked.
 
-![]("./image-2.png")
+![](./image-2.png)
 
 Behind the scenes, the value of these fields looks like the below: a comma-separated list of period-separated fields. The latter part, the period-separated list of fields, works similar to dot-walking in queries and filters.
 
-![]("./image-3.png")
+![](./image-3.png)
 
 ## The problem
-The problem is that ServiceNow doesn't provide a straight-forward and developer-accessible way of fetching data from a GlideRecord using this value. If I have a **GlideRecord** of an incident record, how to I get "assigned_to.department.dept_head"?
+The problem is that ServiceNow doesn't provide a straight-forward and developer-accessible way of fetching data from a GlideRecord using this value. If I have a **GlideRecord** of an incident record, how to I get `assigned_to.department.dept_head`?
 
 `grIncident.getValue("assigned_to.department.dept_head");` comes back with `null`.
 
@@ -60,7 +64,7 @@ function getDotWalkValueFromGr(valuePath, gr) {
 }
 ```
 
-Here is a test which demonstrates the process in action.
+Here is a test which demonstrates the process in action. You can see that it successfully dot-walks through the elements of a GlideRecord and returns the value at the end of it.
 
 ```js
 // === DEBUG ===
