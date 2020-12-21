@@ -8,11 +8,7 @@ imageThumbnail: featured-thumbnail.jpg
   <div class="row">
     <div class="col-md-12">
       <h1>{{ title }}</h1>
-
-      {{ content | safe }}
-
-      <hr />
-      <h5>Tags</h5>
+      <div class="post-date">Published: {{ date | readableDate }}</div>
       <div class="postboard-tags">
         {% for tag in tags %}
           {%- if collections.tagList.indexOf(tag) != -1 -%}
@@ -21,6 +17,13 @@ imageThumbnail: featured-thumbnail.jpg
           {%- endif -%}
         {% endfor %}
       </div>
+
+      <hr />
+
+      {{ content | safe }}
+
+      <hr />
+      
 
       <hr />
 

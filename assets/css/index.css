@@ -55,11 +55,15 @@ p:last-child {
 .post-nav-action {
   font-weight: bold;
 }
+.post-date {
+  color: #505050;
+  font-style: italic;
+}
 
 p,
 .tmpl-post li,
 img {
-  max-width: 37.5em; /* 600px /16 */
+  /* max-width: 37.5em; */ /* 600px /16 */
 }
 p,
 .tmpl-post li {

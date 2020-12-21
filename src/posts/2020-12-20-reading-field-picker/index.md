@@ -10,9 +10,11 @@ tags:
 - Solution
 ---
 
-In ServiceNow there are special fields called **Field List** fields which allow you to select fields from a table. These fields also allow you to dot-walk down into fields on related tables. For example, on an **incident** table you can select:
+In ServiceNow there are special fields called **Field List** fields which allow you to select fields from a table. These fields also allow you to dot-walk down into fields on related tables. 
+
+For example, a **Field List** aimed at the **incident** table can select:
 `Assigned to -> Department -> Department head`
-which would look like
+which would have the value of:
 `assigned_to.department.dept_head`
 
 In essence, it lets you dot-walking without having to hard-code the fields to dot-walk through.
