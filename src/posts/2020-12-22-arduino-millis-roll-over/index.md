@@ -10,7 +10,11 @@ tags:
 
 So you've got an Arduino that flashes some lights, moves some motors, and reads some sensors. Chances are that you don't want it to do whatever it's doing as many times as it can as quickly as it can. You don't care what the temperature is every 0.001 seconds. 
 
+![Work without wait](./work-without-wait.png)
+
 So you add delays to things e.g. read the sensor every 5 minutes.
+
+![Work with wait](./work-with-wait.png)
 
 The easy way is to use `delay()` which puts things to sleep, but this is usually a bad idea because you can't do anything else while it's `delay()`-ing.
 
