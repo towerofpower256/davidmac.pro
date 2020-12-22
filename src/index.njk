@@ -20,7 +20,7 @@ eleventyNavigation:
       {% set postslist = collections.posts | head(-9) %}
       {% set postslistCounter = collections.posts | length %}
 
-      {% include "postboard.njk" %} 
+      {% include "postlistfull.njk" %} 
 
       <p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
     </div>
@@ -44,7 +44,7 @@ eleventyNavigation:
         </div>
       </div>
 
-      {% include "tagsblock.njk" %}
+      {% include "alltagsblock.njk" %}
 
     </div>
 

@@ -52,6 +52,14 @@ p:last-child {
   padding-bottom: 20px;
   height: 100%;
 }
+.post-featuredimage {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+.post-featuredimage img {
+  max-height: 300px;
+}
 .post-nav-action {
   font-weight: bold;
 }
@@ -305,8 +313,8 @@ code .highlight-line:before {
 }
 
 .home-splash-content {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: center;
   color: white;
 }
@@ -346,6 +354,27 @@ code .highlight-line:before {
   background-position: center;
   margin: 5px;
   margin-right: 20px;
+}
+
+/* postlistfull stuff */
+.postlistfull-post {
+  min-height: 150px;
+  margin-bottom: 0.5em;
+}
+
+.postlistfull-image{
+  width: 150px;
+  min-width: 150px;
+  height: 100%;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  margin-right: 20px;
+}
+
+.postlistfull-meta {
+  color: #858585;
 }
 
 /* Footer stuff */
