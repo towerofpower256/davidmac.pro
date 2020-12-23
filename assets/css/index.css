@@ -43,6 +43,10 @@ p:last-child {
   height: 100%;
 }
 
+.tmpl-post img {
+  max-width: 100%;
+}
+
 .post-container {
   background-color: white;
   height: 100%;
@@ -336,6 +340,12 @@ code .highlight-line:before {
 }
 
 /* postlistfull stuff */
+.postlistfull {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-bottom: 10px;
+}
+
 .postlistfull-post {
   min-height: 150px;
   margin-bottom: 0.5em;
