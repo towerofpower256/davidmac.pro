@@ -40,14 +40,14 @@
                 <a href="{{ post.url }}">{{ post.data.title }}</a>
             </h5>
             <div class="postlistfull-meta">
-                Published {{ post.date | readableDate }}
-                <div>
-                {% for tag in post.data.tags %}
-                {%- if collections.tagList.indexOf(tag) != -1 -%}
-                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-                <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-                {%- endif -%}
-                {% endfor %}
+                <div class="postlistfull-published">Published {{ post.date | readableDate }}</div>
+                <div class="postlistfull-tags">
+                    {% for tag in post.data.tags %}
+                    {%- if collections.tagList.indexOf(tag) != -1 -%}
+                    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                    <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+                    {%- endif -%}
+                    {% endfor %}
                 </div>
             </div>
             <div class="postlistfull-text">

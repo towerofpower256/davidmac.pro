@@ -31,14 +31,14 @@ imageThumbnail: featured-thumbnail.jpg
       <hr />
 
       <div class="row post-nav">
-        <div class="col-md-5">
+        <div class="col-md-5 col-sm-12">
           {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
           {%- if previousPost %}
             <p class="post-nav-action">Older</p>
             <p class="post-nav-link"><a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}<br />({{previousPost.date | readableDate}})</a></p>
           {% endif %}
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-sm-12"></div>
         <div class="col-md-5 text-end">
           {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
           {%- if nextPost %}
