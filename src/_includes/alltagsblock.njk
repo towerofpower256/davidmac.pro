@@ -5,7 +5,7 @@
     <div class="card-body">
         {% for tag in collections.tagList %}
         {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }} {{ collections[tag] | length }}</a>
+        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }} ({{ collections[tag] | length }})</a>
         {% endfor %}
     </div>
 </div>

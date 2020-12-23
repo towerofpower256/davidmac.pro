@@ -1,3 +1,4 @@
+<!--
 <div class="postlistfull row">
     {% for post in postslist | reverse %}
     <div class="postlistfull-post col-md-12">
@@ -10,7 +11,7 @@
             <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h5>
         <div class="postlistfull-meta">
-            Published {{ post.date | readableDate }} | Tags: 
+            Published {{ post.date | readableDate }}
             {% for tag in post.data.tags %}
               {%- if collections.tagList.indexOf(tag) != -1 -%}
               {% set tagUrl %}/tags/{{ tag }}/{% endset %}
@@ -24,4 +25,38 @@
     </div>
     <hr />
     {% endfor %}
+</div>
+-->
+
+<div class="postlistfull container-fluid">
+    <ul class="list-group">
+        {% for post in postslist | reverse %}
+        <li class="list-group-item">
+            <!-- <div class="postlistfull-image" style="background-image: url({{ post.url }}{{ post.data.imageThumbnail }})"></div> -->
+            <a href="{{ post.url }}">
+                <img src="{{ post.url }}{{ post.data.imageThumbnail }}" style="width: 200px;">
+            </a>
+            <h5 class="postlistfull-title">
+                <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h5>
+            <div class="postlistfull-meta">
+                Published {{ post.date | readableDate }}
+                {% for tag in post.data.tags %}
+                {%- if collections.tagList.indexOf(tag) != -1 -%}
+                {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+                {%- endif -%}
+                {% endfor %}
+            </div>
+            <div class="postlistfull-text">
+                {{ post.data.description }}
+            </div>
+        </li>
+        {% endfor %}
+        {% if postslistShowLinkToAll == true %}
+        <li class="list-group-item">
+            <a href="/posts/">View more stories...</a>
+        </li>
+        {% endif %}
+    </ul>
 </div>
