@@ -1,20 +1,20 @@
 {
-    "title": "davomac.pro",
-    "url": "https://davidmcdonald.pro/",
+    "title": "davidmac.pro",
+    "url": "https://davidmac.pro/",
     "description": "I am writing about my experiences as a naval navel-gazer.",
     "feed": {
       "subtitle": "I am writing about my experiences as a naval navel-gazer.",
       "filename": "feed.xml",
       "path": "/feed/feed.xml",
-      "id": "https://davidmcdonald.pro/"
+      "id": "https://davidmac.pro/"
     },
     "jsonfeed": {
       "path": "/feed/feed.json",
-      "url": "https://davidmcdonald.pro/feed/feed.json"
+      "url": "https://davidmac.pro/feed/feed.json"
     },
     "author": {
       "name": "David McDonald",
-      "url": "https://example.com/about-me/"
+      "url": "https://davidmac.pro/about-me/"
     },
     "social": {
       "github": "https://github.com/towerofpower256",
