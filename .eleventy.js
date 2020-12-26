@@ -29,6 +29,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/**/*.mmd");
   eleventyConfig.addPassthroughCopy("./src/**/*.xml");
   eleventyConfig.addPassthroughCopy("./src/**/*.xslx");
+  eleventyConfig.addPassthroughCopy("./src/**/*.svg");
 
   eleventyConfig.addWatchTarget("assets");
 
