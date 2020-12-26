@@ -26,6 +26,12 @@ imageThumbnail: featured-thumbnail.jpg
       {{ content | safe }}
 
       <hr />
+      {% set fullurl = ""+metadata.url+page.url %}
+      <div class="post-share d-flex d-flex-row">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ fullurl | encodeURL }}">Share on LinkedIn...</a>
+      </div>
+
+      <hr />
 
       <div class="row post-nav">
         <div class="col-md-5 col-sm-12">

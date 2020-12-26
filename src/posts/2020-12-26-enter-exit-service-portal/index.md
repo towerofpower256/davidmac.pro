@@ -64,9 +64,9 @@ if (user.hasRole("itil") && !redirectURL && !isServicePortalURL)
 ```
 
 That should be about it. Redirecting users using the **SPEntryPage** script has been covered extensively before, here are some links if you'd like to look into the topic further.
-*  https://hi.service-now.com/kb_view.do?sysparm_article=KB0746730
+* https://hi.service-now.com/kb_view.do?sysparm_article=KB0746730
 * https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/build/service-portal/concept/c_SPSSOLoginAndRedirects.html
-* (that community redirection article)
+* https://serviceportal.io/docs/documentation/sso_configuration.md
 	
 ## Entering the Service Portal from the Platform UI
 With the out-of-the-box ServiceNow service portal configuration, the only ways to enter the service portal are:

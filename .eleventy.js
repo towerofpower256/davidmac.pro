@@ -33,6 +33,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addWatchTarget("assets");
 
+  eleventyConfig.addFilter("encodeURL", (input) => {
+    return encodeURIComponent(input);
+  });
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");

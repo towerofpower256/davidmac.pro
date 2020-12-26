@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     {% if image %}
-    {% set metaimage = "{{url}}{{image}}" %}
+    {% set metaimage = page.url+image %}
     {% else %}
-    {% set metaimage = "/assets/img/default-featured-image.jpg" %}
+    {% set metaimage = metadata.defaultFeaturedImage %}
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#4287f5" />
+    <meta name="theme-color" content="{{ metadata.themeColor }}" />
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <!-- Open Graph meta -->
     <meta property='og:title' content='{{ title or metadata.title }}'/>
-    <meta property='og:image' content='{{ metaimage }}'/>
-    <meta property='og:description' content='{{ description or metadata.descrpition }}'/>
-    <meta property='og:url' content='{{ url }}' />
+    <meta property='og:image' content='{{ metadata.url }}{{ metaimage }}'/>
+    <meta property='og:description' content='{{ description or metadata.description }}'/>
+    <meta property='og:url' content='{{ metadata.url }}{{ page.url }}' />
     <meta property="og:type" content="blog" />
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | url }}">
