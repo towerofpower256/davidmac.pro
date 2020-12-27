@@ -1,10 +1,11 @@
 ---
 title: Encrypting and decrypting data in ServiceNow
-description: Passwords and credentials can be encrypted in ServiceNow. Here's how you can decrypt the information to use later.
+description: Passwords and credentials can be encrypted in ServiceNow. Here's how you can decrypt the information to use in your own customisations and integrations.
 date: 2020-12-24
 tags:
 - ServiceNow
 - Coding
+eleventyExcludeFromCollections: true
 ---
 
 In ServiceNow, there are 2 different kinds of password field types for you to choose.

@@ -1,6 +1,6 @@
 ---
 title: Using a Field List to get data from a GlideRecord
-description: So you've got a dot-walked value from a Field List field. How do you use that to get data out of a ServiceNow GlideRecord?
+description: So you've got a dot-walked value from a Field List field, like "assigned_to.manager.email". How do you use that to get data out of a ServiceNow GlideRecord?
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2020-12-20
@@ -8,6 +8,7 @@ tags:
 - ServiceNow
 - Coding
 - Solution
+eleventyExcludeFromCollections: true
 ---
 
 In ServiceNow there are special fields called **Field List** fields which allow you to select fields from a table. These fields also allow you to dot-walk down into fields on related tables. 

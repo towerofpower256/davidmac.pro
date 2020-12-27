@@ -1,11 +1,11 @@
 {
     "title": "davidmac.pro",
     "url": "https://davidmac.pro",
-    "description": "A tall nerd doing nerdy things.",
+    "description": "Tech enthusiasm from down-under",
     "defaultFeaturedImage": "/assets/img/default-featured-image.jpg",
     "themeColor": "#EDF2F7",
     "feed": {
-      "subtitle": "A tall nerd doing nerdy things.",
+      "subtitle": "Tech enthusiasm from down-under",
       "filename": "feed.xml",
       "path": "/feed/feed.xml",
       "id": "https://davidmac.pro/"
@@ -16,7 +16,7 @@
     },
     "author": {
       "name": "David McDonald",
-      "url": "https://davidmac.pro/about-me/"
+      "url": "https://davidmac.pro/"
     },
     "social": {
       "github": "https://github.com/towerofpower256",
@@ -25,7 +25,7 @@
     },
     "splash": {
       "name": "David McDonald",
-      "description": "A tall nerd doing nerdy things",
+      "description": "Tech enthusiasm from down-under",
       "img": ""
     }
   }

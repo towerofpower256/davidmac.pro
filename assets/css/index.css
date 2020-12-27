@@ -390,3 +390,11 @@ footer.site-footer {
 .footer-social .social-item {
   width: 130px;
 }
+
+.footer-copyright a,
+.footer-copyright a:visited,
+.footer-copyright a:hover
+{
+  color: white;
+  text-decoration: none;
+}
