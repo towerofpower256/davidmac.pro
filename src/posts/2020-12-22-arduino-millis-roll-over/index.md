@@ -1,6 +1,6 @@
 ---
-title: How to handle millis roll-over in an Arduino
-description: In Arduino controllers, millis() rolls-over back to zero after 49 days. How can you avoid the problems this causes?
+title: Arduino millis roll-over, and why it can ruin your project
+description: In Arduino controllers, millis() rolls-over back around to zero after 49 days. How can you avoid the problems this causes?
 date: 2020-12-22
 tags:
 - Electronics

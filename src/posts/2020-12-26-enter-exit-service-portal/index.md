@@ -1,5 +1,5 @@
 ---
-title: How you should let users enter and exit the service portal
+title: How you should allow elevated users enter and exit the service portal
 description: Out-of-the-box ServiceNow isn't great for allowing elevated users to jump in and out the service portal, but it's easily fixed with some small changes.
 date: 2020-12-26
 tags:
