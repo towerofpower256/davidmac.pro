@@ -8,7 +8,7 @@ tags:
 - ServiceNow
 - Coding
 - Solution
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 In ServiceNow there are special fields called **Field List** fields which allow you to select fields from a table. These fields also allow you to dot-walk down into fields on related tables. 

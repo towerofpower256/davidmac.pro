@@ -30,7 +30,12 @@
 
 <div class="postlistfull container-fluid">
     <ul class="list-group">
-        {% for post in postslist | reverse %}
+        {% if postslistTitle %}
+        <li class="list-group-item">
+            <h4>{{postslistTitle}}</h4>
+        </li>
+        {% endif %}
+        {% for post in postslist %}
         <li class="list-group-item">
             <!-- <div class="postlistfull-image" style="background-image: url({{ post.url }}{{ post.data.imageThumbnail }})"></div> -->
             <a href="{{ post.url }}">
@@ -57,7 +62,7 @@
         {% endfor %}
         {% if postslistShowLinkToAll == true %}
         <li class="list-group-item">
-            <a href="/posts/">View more stories...</a>
+            <a href="/posts/1">View more stories...</a>
         </li>
         {% endif %}
     </ul>

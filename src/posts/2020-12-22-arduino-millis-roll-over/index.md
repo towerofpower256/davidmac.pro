@@ -6,7 +6,7 @@ tags:
 - Electronics
 - Coding
 - Solution
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 So you've got an Arduino that flashes some lights, moves some motors, and reads some sensors. Chances are that you don't want it to do whatever it's doing as many times as it can as quickly as it can. You don't care what the temperature is every 0.001 seconds. 

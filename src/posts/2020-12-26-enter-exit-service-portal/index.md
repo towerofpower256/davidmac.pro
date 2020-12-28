@@ -6,7 +6,7 @@ tags:
 - ServiceNow
 - Solution
 - Opinion
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 The self-service Service Portal is a powerful feature of ServiceNow. It provides end users and non-fulfiller users with a clean, user friendly, and straight-forward experience to see and find what they need to, without overwhelming them to the myriad of navigation options available in the Platform UI (a.k.a. the backend, the ITIL view, the normal view).

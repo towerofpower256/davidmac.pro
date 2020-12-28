@@ -17,8 +17,9 @@ eleventyNavigation:
     <div class="col-md-8">
       {% set maxPosts = collections.posts.length | min(9) %}
 
-      {% set postslist = collections.posts | head(-9) %}
+      {% set postslist = collections.posts | head(-9) | reverse %}
       {% set postslistShowLinkToAll = true %}
+      {% set postslistTitle = "Recent posts" %}
       {% set postslistCounter = collections.posts | length %}
 
       {% include "postlistfull.njk" %} 

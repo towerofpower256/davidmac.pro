@@ -5,7 +5,7 @@ date: 2020-12-24
 tags:
 - ServiceNow
 - Coding
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 In ServiceNow, there are 2 different kinds of password field types for you to choose.
