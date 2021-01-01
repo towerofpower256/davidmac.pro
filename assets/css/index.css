@@ -398,3 +398,10 @@ footer.site-footer {
   color: white;
   text-decoration: none;
 }
+
+/* About short */
+.aboutshort-photo {
+  width: 75%;
+  border-radius: 15%;
+  padding-bottom: 10px;
+}
