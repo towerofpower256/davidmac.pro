@@ -16,7 +16,7 @@ My aim is to use this blog to:
 
 * Share some of my opinions, thoughts, and ideas.
 * Show off some of the cool stuff I do.
-* Give back to the community that helped my by sharing some interesting solutions I've had for hurdles I've encountered.
+* Give back to the community that helped me by sharing some interesting solutions from my adventures.
 * Do some brain-dumping to get ideas and experiences down in writing.
 
 I'll likely be updating the blog's look and feel as I go, tweaking it to find what works well.
