@@ -25,11 +25,16 @@ imageThumbnail: featured-thumbnail.jpg
 
       {{ content | safe }}
 
+      {#
       <hr />
       {% set fullurl = ""+metadata.url+page.url %}
       <div class="post-share d-flex d-flex-row">
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ fullurl | encodeURL }}">Share on LinkedIn...</a>
+        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+        <script type="IN/Share" data-url="{{fullurl}}"></script>
+
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
+      #}
 
       <hr />
 

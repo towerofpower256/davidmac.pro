@@ -76,7 +76,7 @@ p:last-child {
   max-height: 300px;
 }
 .post-nav {
-  font-size: small;
+  
 }
 .post-nav-action {
   font-weight: bold;
@@ -108,8 +108,14 @@ main :first-child {
   margin-top: 0;
 }
 header.site-header {
-  background-color: #fff;
-  border-bottom: 1px dashed var(--lightgray);
+  /* background-color: #fff; */
+  background-color: var(--footer-bg);
+  /* border-bottom: 1px dashed var(--lightgray); */
+  border-bottom: 1px solid #fff;
+  
+}
+header.site-header a[href]:visited {
+  color: #fff;
 }
 header.site-header:after {
   content: "";
