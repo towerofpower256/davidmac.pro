@@ -41,10 +41,14 @@ p:last-child {
 
 .tmpl-post {
   height: 100%;
+  overflow-wrap: break-word;
 }
 
 .tmpl-post img {
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .tmpl-post blockquote {
@@ -70,6 +74,9 @@ p:last-child {
 }
 .post-featuredimage img {
   max-height: 300px;
+}
+.post-nav {
+  font-size: small;
 }
 .post-nav-action {
   font-weight: bold;
@@ -240,7 +247,7 @@ pre {
   text-transform: uppercase;
   font-size: 0.625em; /* 10px /16 */
   padding: 2px 4px;
-  margin-left: 0.8em; /* 8px /10 */
+  margin-right: 0.8em; /* 8px /10 */
   background-color: var(--red);
   color: var(--white);
   border-radius: 0.25em; /* 3px /12 */
@@ -371,7 +378,7 @@ code .highlight-line:before {
 footer.site-footer {
   padding-top: 1em;
   padding-bottom: 1em;
-  height: var(--footer-height);
+  min-height: var(--footer-height);
   background-color: #2D3748;
   color: #fff;
 }
@@ -400,8 +407,11 @@ footer.site-footer {
 }
 
 /* About short */
-.aboutshort-photo {
+.aboutme-photo {
   width: 75%;
   border-radius: 15%;
   padding-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
