@@ -11,7 +11,6 @@ imageThumbnail: featured-thumbnail.jpg
     </div>
     <div class="col-md-12">
       <h1>{{ title }}</h1>
-      <div class="post-date">Published: {{ date | readableDate }}</div>
       <div class="post-tags">
         {% for tag in tags %}
           {%- if collections.tagList.indexOf(tag) != -1 -%}
@@ -20,6 +19,7 @@ imageThumbnail: featured-thumbnail.jpg
           {%- endif -%}
         {% endfor %}
       </div>
+      <div class="post-date">Published: {{ date | readableDate }}</div>
 
       <hr />
 

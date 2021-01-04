@@ -111,7 +111,7 @@ header.site-header {
   /* background-color: #fff; */
   background-color: var(--footer-bg);
   /* border-bottom: 1px dashed var(--lightgray); */
-  border-bottom: 1px solid #fff;
+  border-bottom: 3px solid #4c6794;
   
 }
 header.site-header a[href]:visited {
