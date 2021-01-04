@@ -410,6 +410,7 @@ footer.site-footer {
 {
   color: white;
   text-decoration: none;
+  text-decoration: underline;
 }
 
 /* About short */
