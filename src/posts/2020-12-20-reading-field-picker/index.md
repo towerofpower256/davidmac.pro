@@ -18,9 +18,9 @@ For example, a **Field List** aimed at the **incident** table can select:
 which would have the value of:
 `assigned_to.department.dept_head`
 
-In essence, it lets you dot-walking without having to hard-code the fields to dot-walk through.
+In essence, this kind of field lets you dot-walk through fields without having to hard-code the field names in your code.
 
-These fields are great, because they allow the end user to select fields to fetch data from without forcing them to modify code that you've written. I've used these **Field List** fields in some of my projects where this is useful, such as a custom approval engine which allowed users to send approval requests to users within related fields on a request.
+These fields are great, because they allow the end user to select fields to fetch data from without forcing them to change code that you've written. I've used these **Field List** fields in some of my projects where this is useful, such as a custom approval engine which allowed users to send approval requests to users within related fields on a request.
 
 You'll most likely come across these on configurable rules such as Notifications where you can select fields that contain users or groups to send the notification out to.
 
@@ -30,7 +30,7 @@ Here's what that same field looks like when it's opened or unlocked.
 
 ![](./image-2.png)
 
-Behind the scenes, the value of these fields looks like the below: a comma-separated list of period-separated fields. The latter part, the period-separated list of fields, works similar to dot-walking in queries and filters.
+Behind the scenes, the value of these fields looks like the below: a comma-separated list of period-separated fields. The latter part, the period-separated list of fields, works the same as you would dot-walk in a filter on a list.
 
 ![](./image-3.png)
 
@@ -67,7 +67,7 @@ function getDotWalkValueFromGr(valuePath, gr) {
 }
 ```
 
-Here is a test which demonstrates the process in action. You can see that it successfully dot-walks through the elements of a GlideRecord and returns the value at the end of it.
+Here is a test which demonstrates the process in action. You can see that it dot-walks through the elements of a GlideRecord and returns the value at the end of it.
 
 ```js
 // === DEBUG ===

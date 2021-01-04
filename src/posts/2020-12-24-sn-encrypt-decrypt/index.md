@@ -12,10 +12,23 @@ In ServiceNow, there are 2 different kinds of password field types for you to ch
 
 **Password (1 Way Encrypted)**
 These are 1-way encrypted fields. Once the data is encrypted, it cannot be decrypted. Never use this type of field if you need to be able to get the password back out again.
-A good example is the field `sys_user.password`. When you log into ServiceNow, it encrypts the password you gave on the login page using the same encryption mechanism used to originally encrypt your password, and then checks to see if the encrypted password you entered matches the encrypted password in the `sys_user.password` field.
+A good example is the field `sys_user.password`. When you log into ServiceNow, it takes the password you entered on the login page and then encrypts it using the same encryption mechanism it used when you set your password, and then checks to see if the encrypted password you entered matches what is stored in your user's `sys_user.password` field.
+
+```
+Setting your password
+New password: my_password
+Encrypted: ePwaaS8VRwM=
+Setting sys_user.password to ePwaaS8VRwM=
+
+Logging in
+Password given: my_password1234
+Encrypted: bXlfcGFzc3dvcmQxMjM0
+"ePwaaS8VRwM=" from the user is not the same as "bXlfcGFzc3dvcmQxMjM0" from the login page
+Incorrect password
+```
 
 **Password (2 Way Encrypted)**
-These are 2-way encrypted fields, where the data is able to be decrypted and retrieved to use in things like your code.
+These are 2-way encrypted fields, where the data can be decrypted and retrieved to use in things like your custom code.
 These sorts of fields are used all over the place, including:
 * Discovery and Orchestration credentials.
 * REST and SOAP authentication credentials.
@@ -44,7 +57,7 @@ var clearString = encr.decrypt(grLDAP.password);
 gs.print("Password for server "+grLDAP.getDisplayValue()+": "+clearString);
 ```
 
-It's worth noting that this is still considered safe and secure because the user must still have admin abilities to run such a script which means that only admins will be able to decrypt this information. Non-admins should not be able to run their own arbitrary scripts and should not be able to whimsically decrypt passwords.
+It's worth noting that this is still considered safe and secure, because the user must still have admin abilities to run such a script. This means that only admins or the ServiceNow system itself will be able to decrypt this information. Non-admins should not be able to run their own arbitrary scripts, and therefore should not be able to whimsically decrypt passwords.
 
 As for 1-way encrypted data, I haven't yet found the mechanism that ServiceNow uses to encrypt data 1-way. However, you'd very rarely need to do this outside of storing the user's password.
 
@@ -66,8 +79,8 @@ ServiceNow HI has provided more information about encryption here in this Servic
 > * 32 characters for AES 256-bit (requires system configuration)
 
 ## ServiceNow encryption context
-For those with an interest in encryption, you'll know that you need an encryption key stored somewhere to reliably encrypt and decrypt data. In my adventures I've discovered that this information is stored in the `sys_encryption_context` table, which is only accessible to users with the `maint` role.
-
-I once encountered an issue where all passwords that were being decrypted came back as stars "\*\*\*\*\*\*" in a development environment. HI Support advised me that something had gone wrong with the recent clone and the encryption context hadn't been included in the clone, which meant that any encrypted data could not be encrypted.
+For those with interested in encryption mechanics, you'll know that you need an unchanging encryption key to reliably encrypt and decrypt data. For it to be unchanging, it needs to be stored somewhere. In my adventures I've discovered that this information is stored in the `sys_encryption_context` table, which is only accessible to users with the `maint` role.
 
 Because the encryption context is locked away from non-ServiceNow users, it's unlikely that you'll be able to use this information, but it's cool to know nonetheless. 
+
+I once encountered an issue on a freshly-cloned instance of ServiceNow where all passwords that were being decrypted came back as stars "\*\*\*\*\*\*". HI Support discovered that something had gone wrong with the recent clone, and that the encryption context hadn't been included in the clone, which meant that any encrypted data could not be encrypted. The issue was resolved by re-cloning over the instance again.
