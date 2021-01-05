@@ -1,5 +1,5 @@
 ---
-title: Hello world
+title: Hello world, the start of my tech blog
 description: My personal tech blog adventures begin!
 image: featured.png
 imageThumbnail: featured.png
