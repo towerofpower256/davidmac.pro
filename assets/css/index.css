@@ -85,6 +85,19 @@ p:last-child {
   color: #505050;
   font-style: italic;
 }
+.post-share {
+  font-style: italic;
+}
+.post-share a,
+.post-share a:hover,
+.post-share a:visited {
+  text-decoration: none;
+}
+.post-share a:hover {
+  color: #0a58ca !important;
+}
+
+
 
 p,
 .tmpl-post li,

@@ -11,6 +11,7 @@ imageThumbnail: featured-thumbnail.jpg
     </div>
     <div class="col-md-12">
       <h1>{{ title }}</h1>
+      <p>{{description}}</p>
       <div class="post-tags">
         {% for tag in tags %}
           {%- if collections.tagList.indexOf(tag) != -1 -%}
@@ -37,6 +38,33 @@ imageThumbnail: featured-thumbnail.jpg
       #}
 
       <hr />
+
+      {# Share links #}
+      {% set fullurl = ""+metadata.url+page.url %}
+      <div class="post-share">
+        Share post&nbsp;
+        {# Linkedin https://www.linkedin.com/shareArticle?mini=true&url=[URL]&title=[TITLE] #}
+        {% set linkedinurl %}https://www.linkedin.com/shareArticle?mini=true&url={{fullurl | encodeURL}}&title={{title | encodeURL}}{% endset %}
+        <a target="popup" href="{{linkedinurl}}" onclick="window.open('{{linkedinurl}}', 'popup', 'width=600,height=600'); return false;">
+          <i class="bi bi-linkedin"></i>
+        </a>
+
+        {# Facebook http://www.facebook.com/sharer.php?u=<URL>&p[title]=<TITLE> #}
+        {% set facebookurl %}http://www.facebook.com/sharer.php?u={{fullurl | encodeURL}}&p[title]={{title | encodeURL}}{% endset %}
+        <a target="popup" href="{{facebookurl}}" onclick="window.open('{{facebookurl}}', 'popup', 'width=600,height=600'); return false;">
+          <i class="bi bi-facebook"></i>
+        </a>
+
+        {# Twitter http://twitter.com/share?text=<TITLE>&url=<URL> #}
+        {% set twitterurl %}http://twitter.com/share?text={{title | encodeURL}}&url={{fullurl | encodeURL}}{% endset %}
+        <a target="popup" href="{{twitterurl}}" onclick="window.open('{{twitterurl}}', 'popup', 'width=600,height=600'); return false;">
+          <i class="bi bi-twitter"></i>
+        </a>
+      </div>
+
+      <hr />
+
+      {# Tags #}
 
       <div class="row post-nav">
         <div class="" style="width: 45%;">
