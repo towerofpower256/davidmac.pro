@@ -17,7 +17,13 @@ Here's a screenshot of how the service portal looks as it comes out-of-the-box.
 
 ![Baseline service portal screenshot](./ootb-sp-screenshot.jpg)
 
+
+## The problem
 An issue that I experience regularly is when fulfiller-users want to enter and exit the service portal and aren't sure how, or that power users find it frustrating to frequently enter and exit the service portal by playing with the URL. There's no buttons and no links (except for admins), and that's a problem.
+
+![Try to platform](./try-to-platform.jpg)
+
+![Try to sp](./try-to-sp.jpg)
 
 Out of the box, entering and exiting the service portal involves the user has manually updating the URL in the browser address bar, which also requires that the user knows the URL of the Service Portal they want to enter.
 
@@ -25,8 +31,8 @@ Out of the box, entering and exiting the service portal involves the user has ma
 
 How can this be made easier to improve the user experience? Here's what I often recommend.
 
-## Design
-The design is simple:
+## The solution
+The design of this solution is simple:
 * The user will be automatically redirected to the Service Portal if they don't have one of the roles we specify.
 * The user can enter the Service Portal from the Application Navigator: **Self-service > Service Portal**.
 * The user can exit the Service Portal using a button in the header that only appears if they have one of the roles we specify.
@@ -35,7 +41,7 @@ The design is simple:
 
 It's at this point that you'll want to decide the user roles that will decide if the user gets redirected to the service portal or not. As it comes out-of-the-box, the **SPEntryPage** script will not redirect any user that has any role of any kind. This works well for simple scenarios, but I find that this is too broad a brush when custom non-fulfiller roles start being used, such as roles to control access to homepages. Whatever works for you.
 
-# Automatically redirecting to the Service Portal
+### Automatically redirecting to the Service Portal
 ServiceNow has already made this part easy. Use the script include "SPEntryPage", and modify it slightly so that users with the desired role(s) do not get redirected.
 
 This script is run when the user navigates to the base URL of the instance (if they're not trying to go anywhere). If they have a link to somewhere specific like a record, they won't be redirected, and will successfully land where they were trying to get to.
@@ -69,7 +75,7 @@ That should be about it. Redirecting users using the **SPEntryPage** script has 
 * https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/build/service-portal/concept/c_SPSSOLoginAndRedirects.html
 * https://serviceportal.io/docs/documentation/sso_configuration.md
 	
-## Entering the Service Portal from the Platform UI
+### Entering the Service Portal from the Platform UI
 With the out-of-the-box ServiceNow service portal configuration, the only ways to enter the service portal are:
 * To be redirected to it when you login.
 * To manually navigate to the service portal by changing the browser address by adding `/sp`.
@@ -88,7 +94,7 @@ There is a very easy solution for this user-experience problem. Create a new mod
 
 ![Link to service portal](./service-portal-self-service-link.png)
 
-## Exiting the portal
+### Exiting the portal
 So you've followed a link into the service portal, but you're an ITIL user and want to get out. How do you do it?
 
 In the out-of-the-box service portal, there's no button or link that you can use to leave. This forces the you to manually change the address in your browser's address bar, chopping off the `/sp?` and everything after it.
@@ -96,7 +102,7 @@ In the out-of-the-box service portal, there's no button or link that you can use
 A change I recommend is to create an **Exit** menu item on the service portal's header menu. This will appear as a button at the top of the service portal to users with the same roles that don't get redirected, and clicking on it will redirect the user to the platform UI.
 
 To do so, open the Service Portal Menu that's set as the header menu for your service portal and create a new menu item with these details:
-* **Name** to `Exit portal`.
+* **Name** to `Exit portal`, `Advanced mode`, or `Fulfiller view`. Something to say "leave the service portal".
 * **Order** to `100` or so, to position it on the far-left.
 * **Glyph** to the up arrow. I like this because it denotes that you're going to leave the service portal.
 * **Type** to `URL`.
