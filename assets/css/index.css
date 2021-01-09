@@ -85,15 +85,15 @@ p:last-child {
   color: #505050;
   font-style: italic;
 }
-.post-share {
+.post-those-buttons {
   font-style: italic;
 }
-.post-share a,
-.post-share a:hover,
-.post-share a:visited {
+.post-those-buttons a,
+.post-those-buttons a:hover,
+.post-those-buttons a:visited {
   text-decoration: none;
 }
-.post-share a:hover {
+.post-those-buttons a:hover {
   color: #0a58ca !important;
 }
 

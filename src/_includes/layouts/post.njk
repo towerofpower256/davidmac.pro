@@ -41,8 +41,8 @@ imageThumbnail: featured-thumbnail.jpg
 
       {# Share links #}
       {% set fullurl = ""+metadata.url+page.url %}
-      <div class="post-share">
-        Share post&nbsp;
+      <div class="post-those-buttons">
+        Share post:&nbsp;
         {# Linkedin https://www.linkedin.com/shareArticle?mini=true&url=[URL]&title=[TITLE] #}
         {% set linkedinurl %}https://www.linkedin.com/shareArticle?mini=true&url={{fullurl | encodeURL}}&title={{title | encodeURL}}{% endset %}
         <a target="popup" href="{{linkedinurl}}" onclick="window.open('{{linkedinurl}}', 'popup', 'width=600,height=600'); return false;">
@@ -60,9 +60,8 @@ imageThumbnail: featured-thumbnail.jpg
         <a target="popup" href="{{twitterurl}}" onclick="window.open('{{twitterurl}}', 'popup', 'width=600,height=600'); return false;">
           <i class="bi bi-twitter"></i>
         </a>
+        <hr />
       </div>
-
-      <hr />
 
       {# Tags #}
 
