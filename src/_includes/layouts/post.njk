@@ -40,6 +40,7 @@ imageThumbnail: featured-thumbnail.jpg
       <hr />
 
       {# Share links #}
+
       {% set fullurl = ""+metadata.url+page.url %}
       <div class="post-those-buttons">
         Share post:&nbsp;
@@ -63,7 +64,23 @@ imageThumbnail: featured-thumbnail.jpg
         <hr />
       </div>
 
-      {# Tags #}
+      {# Comments #}
+      {% if metadata.utterancesRepo %}
+      <div class="post-comments">
+        <script src="https://utteranc.es/client.js"
+          repo="{{metadata.utterancesRepo}}"
+          issue-term="pathname"
+          label="comment"
+          theme="github-light"
+          crossorigin="anonymous"
+          async >
+        </script>
+        <noscript>Please enable JavaScript to view the comments powered by Utterances.</a></noscript>
+        <hr />
+      </div>
+      {% endif %}
+
+      {# Navigation #}
 
       <div class="row post-nav">
         <div class="" style="width: 45%;">

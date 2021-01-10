@@ -4,6 +4,7 @@
     "description": "Tech enthusiasm from down-under",
     "defaultFeaturedImage": "/assets/img/default-featured-image.png",
     "themeColor": "#EDF2F7",
+    "utterancesRepo": "towerofpower256/davidmac.pro",
     "feed": {
       "subtitle": "Tech enthusiasm from down-under",
       "filename": "feed.xml",
