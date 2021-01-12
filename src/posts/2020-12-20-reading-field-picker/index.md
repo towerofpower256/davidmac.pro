@@ -41,7 +41,14 @@ The problem is that ServiceNow doesn't provide a straight-forward and developer-
 
 `grIncident["assigned_to.department.dept_head"];` comes back with `undefined`.
 
-## The solution
+## The solution (updated 2021-01-12)
+A reader has reached out to let me know that there's an easier method. It looks like you can now use:
+```js
+gr.getElement("assigned_to.department.dept_head")
+```
+to get the value of a field by dot-walking. I've learned something new!
+
+## The solution (original)
 I put together a function to solve this problem that is surprisingly straight-forward. It steps through the dot-walkable fields on the GlideRecord for as many steps are in the path string. The result that it has at the end of the path will be the desired value. This works well because stepping through a field that isn't dot-walkable just returns `undefined` which can be handled safely, instead of throwing an exception and stopping the process. This also  that the benefit of working safely for dot-walking into fields that don't exist, and dot-walking through a reference field that is empty without causing issues.
 
 ```js
