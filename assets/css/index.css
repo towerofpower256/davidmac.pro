@@ -96,6 +96,11 @@ p:last-child {
 .post-those-buttons a:hover {
   color: #0a58ca !important;
 }
+.post-container caption {
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+}
 
 
 
