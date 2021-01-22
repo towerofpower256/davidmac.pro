@@ -1,5 +1,5 @@
 ---
-title: "Better SN Approvals #1 - The Correct Activity Stream"
+title: "Better SN Approvals #1 - The Activity Stream"
 description: ServiceNow approvals are incredibly useful, but they do have some rough edges out-of-the-box, such as the activity stream on approval pages missing information.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
