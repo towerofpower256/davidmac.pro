@@ -1,6 +1,6 @@
 ---
 title: "Better SN Approvals #1 - The Correct Activity Stream"
-description: ServiceNow approvals are incredibly useful, but they do have some rough edges out-of-the-box, such as the activty stream on approval pages missing information.
+description: ServiceNow approvals are incredibly useful, but they do have some rough edges out-of-the-box, such as the activity stream on approval pages missing information.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-01-22
