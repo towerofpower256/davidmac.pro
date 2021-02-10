@@ -1,6 +1,6 @@
 ---
 title: "Better SN Approvals #3 - Approval Reminders"
-description: ServiceNow approvals are incredibly useful, but overwhelmed approvers can often miss approvals. This easy tweak can help keep all approvals on the radar.
+description: ServiceNow approvals are incredibly useful, but overwhelmed approvers can sometimes miss approvals. This easy tweak can help keep all approvals on the radar.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-02-10
@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: false
 
 ServiceNow is great for approval processes. It's powerful, flexible, and easy to track who approved what. Enabling users to quickly action approvals extends into the ServiceNow service portal, including a highly visible count of approvals awaiting the user, and summarising approvals for an at-a-glance review.
 
-However, if approvers are a part of multiple or large processes, they can quickly become overwhelmed with approval requests. This often leads to approvals being missed and falling through the cracks, sometimes forgotten completely.
+However, if approvers are a part of multiple or large processes, they can quickly become overwhelmed with approval requests. This sometimes leads to approvals being missed and falling through the cracks, sometimes forgotten completely.
 
 ## The problem
 When an approval is assigned to an approver to action, ServiceNow usually sends an email out to the user to let them know about it.
