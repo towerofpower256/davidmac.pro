@@ -6,10 +6,11 @@ imageThumbnail: featured-thumbnail.jpg
 ---
 <div class="container post-container">
   <div class="row">
-    <div class="col-md-100 post-featuredimage">
-      <img src="./{{image}}" alt="Featured image"></img>
-    </div>
-    <div class="col-md-12">
+    
+    <div class="col-md-8 card">
+      <div class="col-md-100 post-featuredimage">
+        <img src="./{{image}}" alt="Featured image"></img>
+      </div>
       <h1>{{ title }}</h1>
       <p>{{description}}</p>
       <div class="post-tags">
@@ -97,6 +98,23 @@ imageThumbnail: featured-thumbnail.jpg
             <p class="post-nav-action">Newer</p>
             <p class="post-nav-link"><a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}<br />({{nextPost.date | readableDate}})</a></p>
           {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          About me
+        </div>
+
+      </div>
+        {% include "recentposts.njk" %}
+      <div class="card">
+        <div class="card-header">
+          About me
+        </div>
+        <div class="card-body">
+          {% include "aboutme.njk" %}
         </div>
       </div>
     </div>
