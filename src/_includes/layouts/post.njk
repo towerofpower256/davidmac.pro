@@ -102,13 +102,16 @@ imageThumbnail: featured-thumbnail.jpg
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          About me
-        </div>
 
+      <div id="recentposts" class="card">
+        <div class="card-header">
+            Recent activity
+        </div>
+        <!-- <div class="card-body"> -->
+            {% include "recentposts.njk" %}
+        <!-- </div> -->
       </div>
-        {% include "recentposts.njk" %}
+        
       <div class="card">
         <div class="card-header">
           About me
@@ -117,6 +120,7 @@ imageThumbnail: featured-thumbnail.jpg
           {% include "aboutme.njk" %}
         </div>
       </div>
+
     </div>
   </div>  
 </div>
