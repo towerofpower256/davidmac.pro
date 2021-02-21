@@ -39,6 +39,10 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.list-group-item-header {
+  background-color: rgba(0,0,0,.03) !important;
+}
+
 .tmpl-post {
   height: 100%;
   overflow-wrap: break-word;
@@ -102,6 +106,10 @@ p:last-child {
   width: 100%;
 }
 
+.post-sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 
 p,
@@ -280,6 +288,11 @@ pre {
 a[href].post-tag,
 a[href].post-tag:visited {
   color: #fff;
+}
+
+.post-tag-secondary {
+  background-color: var(--lightgray);
+  color: black;
 }
 
 /* Warning */
