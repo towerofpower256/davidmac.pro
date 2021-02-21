@@ -1,0 +1,4 @@
+{% set maxPosts = collections.posts.length | min(4) %}
+{% set postslist = collections.posts | head(-4) | reverse %}
+
+{% include "postlistbrief.njk" %} 

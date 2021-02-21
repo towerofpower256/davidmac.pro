@@ -1,0 +1,19 @@
+<ul class="list-group mb-3" style="background-color: #fff">
+    <li class="list-group-item list-group-item-header">
+        Latest posts
+    </li>
+    {% for post in postslist %}
+    <li class="list-group-item">
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+        <div class="post-date">{{ post.date | readableDate }}</div>
+        <div class="post-tags">
+          {% for tag in tags %}
+            {%- if collections.tagList.indexOf(tag) != -1 -%}
+            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+            {%- endif -%}
+          {% endfor %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>

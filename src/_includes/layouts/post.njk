@@ -6,99 +6,117 @@ imageThumbnail: featured-thumbnail.jpg
 ---
 <div class="container post-container">
   <div class="row">
-    <div class="col-md-100 post-featuredimage">
-      <img src="./{{image}}" alt="Featured image"></img>
+    
+    <div class="col-md-8 mb-3">
+      <div class="card card-body">
+        <div class="col-md-100 post-featuredimage">
+          <img src="./{{image}}" alt="Featured image"></img>
+        </div>
+        <h1>{{ title }}</h1>
+        <p>{{description}}</p>
+        <div class="post-tags">
+          {% for tag in tags %}
+            {%- if collections.tagList.indexOf(tag) != -1 -%}
+            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+            {%- endif -%}
+          {% endfor %}
+        </div>
+        <div class="post-date">Published: {{ date | readableDate }}</div>
+
+        <hr />
+
+        {{ content | safe }}
+
+        {#
+        <hr />
+        {% set fullurl = ""+metadata.url+page.url %}
+        <div class="post-share d-flex d-flex-row">
+          <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+          <script type="IN/Share" data-url="{{fullurl}}"></script>
+
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        #}
+
+        <hr />
+
+        {# Share links #}
+
+        {% set fullurl = ""+metadata.url+page.url %}
+        <div class="post-those-buttons">
+          Share post:&nbsp;
+          {# Linkedin https://www.linkedin.com/shareArticle?mini=true&url=[URL]&title=[TITLE] #}
+          {% set linkedinurl %}https://www.linkedin.com/shareArticle?mini=true&url={{fullurl | encodeURL}}&title={{title | encodeURL}}{% endset %}
+          <a target="popup" href="{{linkedinurl}}" onclick="window.open('{{linkedinurl}}', 'popup', 'width=600,height=600'); return false;">
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          {# Facebook http://www.facebook.com/sharer.php?u=<URL>&p[title]=<TITLE> #}
+          {% set facebookurl %}http://www.facebook.com/sharer.php?u={{fullurl | encodeURL}}&p[title]={{title | encodeURL}}{% endset %}
+          <a target="popup" href="{{facebookurl}}" onclick="window.open('{{facebookurl}}', 'popup', 'width=600,height=600'); return false;">
+            <i class="bi bi-facebook"></i>
+          </a>
+
+          {# Twitter http://twitter.com/share?text=<TITLE>&url=<URL> #}
+          {% set twitterurl %}http://twitter.com/share?text={{title | encodeURL}}&url={{fullurl | encodeURL}}{% endset %}
+          <a target="popup" href="{{twitterurl}}" onclick="window.open('{{twitterurl}}', 'popup', 'width=600,height=600'); return false;">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <hr />
+        </div>
+
+        {# Comments #}
+        {% if metadata.utterancesRepo %}
+        <div class="post-comments">
+          <script src="https://utteranc.es/client.js"
+            repo="{{metadata.utterancesRepo}}"
+            issue-term="pathname"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async >
+          </script>
+          <noscript>Please enable JavaScript to view the comments powered by Utterances.</a></noscript>
+          <hr />
+        </div>
+        {% endif %}
+
+        {# Navigation #}
+        {#
+        <div class="row post-nav">
+          <div class="" style="width: 45%;">
+            {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+            {%- if previousPost %}
+              <p class="post-nav-action">Older</p>
+              <p class="post-nav-link"><a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}<br />({{previousPost.date | readableDate}})</a></p>
+            {% endif %}
+          </div>
+          <div class="col-sm-2" style="width: 10%"></div>
+          <div class="text-end" style="width: 45%;">
+            {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+            {%- if nextPost %}
+              <p class="post-nav-action">Newer</p>
+              <p class="post-nav-link"><a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}<br />({{nextPost.date | readableDate}})</a></p>
+            {% endif %}
+          </div>
+        </div>
+        #}
+      </div>
     </div>
-    <div class="col-md-12">
-      <h1>{{ title }}</h1>
-      <p>{{description}}</p>
-      <div class="post-tags">
-        {% for tag in tags %}
-          {%- if collections.tagList.indexOf(tag) != -1 -%}
-          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-          <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-          {%- endif -%}
-        {% endfor %}
-      </div>
-      <div class="post-date">Published: {{ date | readableDate }}</div>
+    <div class="col-md-4 post-sidebar">
 
-      <hr />
-
-      {{ content | safe }}
-
-      {#
-      <hr />
-      {% set fullurl = ""+metadata.url+page.url %}
-      <div class="post-share d-flex d-flex-row">
-        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-        <script type="IN/Share" data-url="{{fullurl}}"></script>
-
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      #}
-
-      <hr />
-
-      {# Share links #}
-
-      {% set fullurl = ""+metadata.url+page.url %}
-      <div class="post-those-buttons">
-        Share post:&nbsp;
-        {# Linkedin https://www.linkedin.com/shareArticle?mini=true&url=[URL]&title=[TITLE] #}
-        {% set linkedinurl %}https://www.linkedin.com/shareArticle?mini=true&url={{fullurl | encodeURL}}&title={{title | encodeURL}}{% endset %}
-        <a target="popup" href="{{linkedinurl}}" onclick="window.open('{{linkedinurl}}', 'popup', 'width=600,height=600'); return false;">
-          <i class="bi bi-linkedin"></i>
-        </a>
-
-        {# Facebook http://www.facebook.com/sharer.php?u=<URL>&p[title]=<TITLE> #}
-        {% set facebookurl %}http://www.facebook.com/sharer.php?u={{fullurl | encodeURL}}&p[title]={{title | encodeURL}}{% endset %}
-        <a target="popup" href="{{facebookurl}}" onclick="window.open('{{facebookurl}}', 'popup', 'width=600,height=600'); return false;">
-          <i class="bi bi-facebook"></i>
-        </a>
-
-        {# Twitter http://twitter.com/share?text=<TITLE>&url=<URL> #}
-        {% set twitterurl %}http://twitter.com/share?text={{title | encodeURL}}&url={{fullurl | encodeURL}}{% endset %}
-        <a target="popup" href="{{twitterurl}}" onclick="window.open('{{twitterurl}}', 'popup', 'width=600,height=600'); return false;">
-          <i class="bi bi-twitter"></i>
-        </a>
-        <hr />
-      </div>
-
-      {# Comments #}
-      {% if metadata.utterancesRepo %}
-      <div class="post-comments">
-        <script src="https://utteranc.es/client.js"
-          repo="{{metadata.utterancesRepo}}"
-          issue-term="pathname"
-          label="comment"
-          theme="github-light"
-          crossorigin="anonymous"
-          async >
-        </script>
-        <noscript>Please enable JavaScript to view the comments powered by Utterances.</a></noscript>
-        <hr />
-      </div>
-      {% endif %}
-
-      {# Navigation #}
-
-      <div class="row post-nav">
-        <div class="" style="width: 45%;">
-          {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-          {%- if previousPost %}
-            <p class="post-nav-action">Older</p>
-            <p class="post-nav-link"><a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}<br />({{previousPost.date | readableDate}})</a></p>
-          {% endif %}
+      {% include "recentposts.njk" %}
+        
+      <div class="card mb-3">
+        <div class="card-header">
+          About me
         </div>
-        <div class="col-sm-2" style="width: 10%"></div>
-        <div class="text-end" style="width: 45%;">
-          {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-          {%- if nextPost %}
-            <p class="post-nav-action">Newer</p>
-            <p class="post-nav-link"><a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}<br />({{nextPost.date | readableDate}})</a></p>
-          {% endif %}
+        <div class="card-body">
+          {% include "aboutme.njk" %}
         </div>
       </div>
+
     </div>
   </div>  
 </div>
