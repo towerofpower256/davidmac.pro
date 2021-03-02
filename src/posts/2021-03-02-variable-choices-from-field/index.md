@@ -1,6 +1,6 @@
 ---
 title: "Use existing choices for a variable, don't duplicate them"
-description: This cool trick will allow your select box variablesto use existing choices on a field instead of manually copying them.
+description: This cool trick will allow your select box and multiple choice variables to use an existing set of choices instead of manually copying them.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-03-02
@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: false
 ---
 
 ## The problem
-So you've got a select box or multiple choice variable on a catalog item or record producer, and you want to use the same set of choices from a choice field (e.g. choices from the Category field on the incident table).
+So you've got a select box or multiple choice variable on a catalog item or record producer, and you want to use the same set of choices from a choice field (e.g. choices from the Incident Category field).
 
 A common approach is to manually duplicate the choices from the table field to the select box variable. This is painful for larger sets of choices, such as the incident category field.
 
