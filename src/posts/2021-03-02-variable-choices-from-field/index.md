@@ -22,7 +22,7 @@ This approach also creates a problem where changes on the field's choices (addin
 [![](./invalid-data-diagram.png)](./invalid-data-diagram.png)
 
 ## The solution
-I stumbled on this solution while trying to think a little sideways, but it works surprisingly well.
+I stumbled on this solution while trying to think a little sideways, and it works surprisingly well.
 
 The gist of this solution is to use a Lookup variable to grab choices in the sys_choice table for the choice field that you want to reflect. Below are the sys_choice's for the Contact type field on the Task table.
 [![](./sys_choice_sample.png)](./sys_choice_sample.png)
