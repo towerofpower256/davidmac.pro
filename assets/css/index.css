@@ -111,6 +111,10 @@ p:last-child {
   padding-right: 0;
 }
 
+.post-sidebar-wrapper {
+  margin-bottom: 15px;
+}
+
 
 p,
 .tmpl-post li,
@@ -410,6 +414,25 @@ code .highlight-line:before {
 .postlistfull-meta {
   color: #858585;
 }
+
+/* TOC stuff */
+/* 1st level is numbers */
+.toc li {
+  list-style-type: decimal;
+}
+
+/* 2nd level is letters */
+.toc li li {
+  list-style-type: lower-alpha;
+}
+
+/* 3rd level is roman */
+.toc li li li {
+  list-style-type: lower-roman;
+}
+
+/* There should be no 4th level, what is wrong with you? */
+
 
 /* Footer stuff */
 footer.site-footer {

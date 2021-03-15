@@ -105,6 +105,17 @@ imageThumbnail: featured-thumbnail.jpg
       </div>
     </div>
     <div class="col-md-4 post-sidebar">
+      <div class="sticky-top post-sidebar-wrapper">
+      <div class="card mb-3">
+        <div class="card-header">
+          Table of contents
+        </div>
+        <div class="card-body">
+          {% if content | toc %}
+          {{ content | toc | safe }}
+          {% endif %}
+        </div>
+      </div>
 
       {% include "recentposts.njk" %}
         
@@ -117,6 +128,7 @@ imageThumbnail: featured-thumbnail.jpg
         </div>
       </div>
 
+    </div>
     </div>
   </div>  
 </div>

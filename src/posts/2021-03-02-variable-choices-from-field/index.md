@@ -45,7 +45,7 @@ The "**inactive=false**" is important, so that choices that have been set as ina
 
 The "**ORDERBYsequence**" part of the qualifier means that the variable choices will follow the same ordering used elsewhere, instead of just alphabetically.
 
-### The result
+## The result
 The end result is a drop-down select box that uses the same choice values as the desired table field, without all of the manual mess of copying the options.
 
 [![](./variable-demo.png)](./variable-demo.png)
