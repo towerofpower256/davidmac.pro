@@ -15,9 +15,11 @@ My first time was when an application install went bad because an ACL record in 
 
 Well fret no more! Here is a function that you can use to find where that mystery sys_id lives.
 
+I'm pretty proud of this one, and I've found it useful more than once.
+
 It works by searching every base table for a record with that sys_id, and then returns a list of results. It's smart enough to avoid tables that don't have sys_id's (e.g. text search tables), it'll even search the deleted record audit table in case it was deleted, and you can configure it with the `options` parameter.
 
-I'm pretty proud of this one, and I've found it useful more than once.
+There's an example and a guide on how to use it at the end of the script.
 
 ```js
 function findSysId(sysIdToFind, options) {
