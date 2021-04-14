@@ -9,9 +9,19 @@ tags:
 eleventyExcludeFromCollections: false
 ---
 
+*I have this sys_id "b33d7380db8fe410360972f5f39619d1".*
+*What is it?*
+*What does it do?*
+*What table is it from?*
+*I don't know what to do with this! Where do I start looking?*
+
+<hr/>
+
 Don't you hate it when you have a sys_id from somewhere in ServiceNow, but you have no idea what it's for or even what table it's supposed to be from? It's one of those unique problems that when it happens, searching for the answer will get you angry and frustrated.
 
 My first time was when an application install went bad because an ACL record in the application had the same sys_id as an ACL record that already existed in our ServiceNow. So that ACL from the new application was given a new sys_id, which threw everything into chaos. All non-admins couldn't access anything, and it took us weeks to figure out where the conflict had happened.
+
+Unhelpful error messages that only spit out a sys_id are another culprit, and unfortunately they're not uncommon.
 
 Well fret no more! Here is a function that you can use to find where that mystery sys_id lives.
 
@@ -110,7 +120,9 @@ function findSysId(sysIdToFind, options) {
 	}
 };
 
-// === Testing ===
+// ===
+// === Usage example ===
+// ===
 
 var r = findSysId("b33d7380db8fe410360972f5f39619d1", {
     verbose: true, // Adds more logging
