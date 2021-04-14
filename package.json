@@ -9,7 +9,7 @@
   "author": "davidmcdonald.business@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.12.1"
   },
   "dependencies": {
     "@11ty/eleventy-navigation": "^0.1.6",
