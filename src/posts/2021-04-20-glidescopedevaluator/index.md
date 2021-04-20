@@ -1,5 +1,5 @@
 ---
-title: "Help your low-code ServiceNow colleagues using GlideScopedEvaluator"
+title: "Help your low-code ServiceNow colleagues by using GlideScopedEvaluator"
 description: By creating your own script fields using GlideScopeEvaluator, you can support your low-code ServiceNow administrators to work alongside your script-heavy creations, instead of rewriting them.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
