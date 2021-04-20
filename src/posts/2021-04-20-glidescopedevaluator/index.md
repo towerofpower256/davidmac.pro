@@ -1,6 +1,6 @@
 ---
-title: ""
-description: Support your low-code ServiceNow administrators with easy to use script fields
+title: "Help your low-code ServiceNow colleagues using GlideScopedEvaluator"
+description: By creating your own script fields using GlideScopeEvaluator, you can support your low-code ServiceNow administrators to work alongside your script-heavy creations, instead of rewriting them.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-04-20
@@ -30,7 +30,7 @@ However, there are times that you will want to call arbitrary script on the serv
 
 It works by taking a script from a field on an existing record, and executes it as server-side JavaScript. The field should be the type of "Script" or "Script (plain text)", but it'll accept any string field.
 
-Ever wondered how scripts in one of these below fields went from text to code that runs?
+Ever wondered how scripts in one of these below fields goes from plain ol' text to ***computer code magic***?
 
 * The "Script" field on "Business Rules".
 * The "Advanced condition" on "Notifications".
@@ -38,16 +38,18 @@ Ever wondered how scripts in one of these below fields went from text to code th
 * The "Source script" field on "Field Maps".
 
 ![This guy (or something similar)](./gse-this-guy.jpg)
-*Or something very similar.*
+*or something very similar that lives behind the scenes but works the same*
 
 ## Why should I use it?
-> ***But David, I can just write script in a business rule or a script include, why would I want to pull code from anywhere else?***
+> ***But David, I can just write script in a business rule or a script include, why would I want to write code anywhere else?***
 
 That's because you're a **talented system administrator**, and anything you create in a script include will need to be maintained either by you or someone else just as talented. This is known as **technical debt**. 
 
 ![[Technical debt](./technical-debt.png)](./technical-debt.png)
 
-Once you've created something large enough and ***awesome*** enough, **low-code** and **no-code** administrators should should be able configure it without modifying scripts and business rules. By using small & simple script fields and **GlideScopedEvaluator**, you're allowing less-savvy administrators to achieve more with fewer changes and less complexity.
+Once you've created something large enough and ***awesome*** enough, **low-code** and **no-code** administrators should be able configure it without modifying scripts and business rules. By using small & simple script fields and **GlideScopedEvaluator**, you're allowing less-savvy administrators to achieve more with fewer changes and less complexity.
+
+ServiceNow developers should already be using **System Properties** to allow administrators to configure parts of their creations. This is just the next step, where other administrators can change chunks of code without having to touch any major code or components.
 
 ## Usage
 Using **GlideScopedEvaluator** is fairly simple. The most important part is the `evaluateScript()` function which is used like this:
@@ -91,9 +93,9 @@ Let's assume that we've created a new field on the "User group" table called "As
 
 > **Note**: this example is messy but works as an example. Don't actually do this.
 
-To run and check these rules, we'll use a business rule that uses **GlideScopedEvaluator** to check the rule.
+To run and check these rules, we'll use a business rule that uses **GlideScopedEvaluator** to check the assignment condition on the group.
 
-**Name:** Evaluate assignment rules
+**Name:** Evaluate group assignment condition
 **Table:** Incident [incident]
 **Advanced:** checked
 **Insert:** checked
@@ -122,9 +124,9 @@ To run and check these rules, we'll use a business rule that uses **GlideScopedE
 What does this script do?
 1. Gets the **GlideRecord** of the assignment group
 1. Starts a new **GlideScopedEvaluator**
-1. Puts the "current", "group", and "answer" variables into the script that's going to be run
-1. Run the script in the group's "u_assignment_condition" field
-1. If the script set the "answer" variable is FALSE, abort the action and show up an error message about it
+1. Puts the "**current**", "**group**", and "**answer**" variables into the script that's going to be run
+1. Run the script in the group's "**u_assignment_condition**" field
+1. If the script set the "**answer**" variable is FALSE, abort the action and show up an error message about it
 
 ![[Assignment rule failed](./assignment-rule-fail.png)](./assignment-rule-fail.png)
 
@@ -150,9 +152,9 @@ answer = (function(current,group) {
 In some scenarios, you'll want to use the script to pass back a result of some kind, to drive something else. This usually comes in 2 different flavours: **simple results**, or **variable results**.
 
 ### Simple results
-The **simple results** method works like the "Reference qualifier" field on a dictionary entry, or the "Condition" field on a business rule, where the result is whatever the last statement turned out to be.
+The **simple results** method works like the "Reference qualifier" field on a dictionary entry, or the "Condition" field on a business rule, where the result is whatever the last statement is.
 
-Here's the "Condition" field on the business rule "Sync Sysem Preference". This script works just like a condition inside an `if` condition, that compares stuff together and then either returns **true** or **false**.
+Here's the "Condition" field on the business rule "Sync System Preference". This script works just like a condition inside an `if` condition, that compares stuff together and then either returns **true** or **false**.
 
 ![[Simple condition field on business rule](./simple-condition-field.png)](./simple-condition-field.png)
 
@@ -196,20 +198,21 @@ var answer = ge.getVariable("answer");
 var aclGrantsAccess = (answer == true); 
 ```
 
-You can pass in multiple variables that the user set if you'd like. However, **Dave's tip** would be to send through an object that can collect multiple results.
+## Tips and Tricks
+
+### Multiple return objects
+You can pass in multiple variables that the script to set. However, I'd recommend using a single object that can collect multiple results instead of using multiple objects.
 
 ```js
-answer = (function(myAnswerObj) {
+(function(myAnswerObj) {
     myAnswerObj.var1 = "abc";
     myAnswerObj.var2 = "123";
     myAnswerOBj.var3 = "foo";
 })();
 ```
 
-## Cool tips
-
 ### Self-documenting script fields
-A common mistake I see is that cruel and malicious developers create their script fields blank by default, and look like this:
+A common mistake I cruel developers make is to create their script fields blank by default, and look like this:
 
 ![[Blank script field](./blank-script-field.png)](./blank-script-field.png)
 
@@ -217,11 +220,11 @@ What variables are available?
 What should this script do?
 How should it return a result?
 
-I ***highly*** recommend creating a default value for the script field as a function template, similar to the look-and-feel of Business Rule and Transform Map script fields. This reduces confusion, and leads to a smoother experience for the user, which means users aren't asking you how to use it over and over again.
+I ***highly*** recommend creating a default value for the script field as a function template, similar to the look-and-feel of the default Business Rule and Transform Map script fields. This reduces confusion, and leads to a smoother experience for the user, which means users aren't constantly asking you how to use that field, or having to reverse-engineer your code to see how it works.
+
+In the below screenshot of the default Field Map script field, you can clearly see that the "**source**" variable is available, and it's a self-running function that's setting the "**answer**" variable with the result of the function. No confusion there.
 
 ![[Field map string field](./field-map-script-field.png)](./field-map-script-field.png)
-
-In this picture, you can clearly see that the "source" variable is available, and it's a self-running function that's setting the "answer" variable to the result of the function. No confusion there.
 
 ### Running scripts without needing a record
 Normally, **GlideScopedEvaluator** wants to force you to use a field on a GlideRecord as the source of your script.
