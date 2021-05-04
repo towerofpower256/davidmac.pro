@@ -38,7 +38,7 @@ function findDupes(tableName, fieldName) {
 }
 ```
 
-Use it like this
+Use it like this.
 
 ```js
 var r = findDupes("sys_user", "email"); // Find duplicate email addresses
@@ -88,6 +88,6 @@ E.g. https://community.servicenow.com/community?id=community_blog&sys_id=656b373
 duplicateCheck.addHaving('COUNT', '>', 1);
 ```
 
-You might be asking *"So why didn't you use `.addHaving(...)` in your code, instead ignoring results in an `if` which is less effecient?"*.
+You might be asking *"So why didn't you use `.addHaving(...)` in your code, instead ignoring results in an `if` which is less efficient?"*.
 
 Sadly, the `.addHaving(...)` function doesn't work in scope apps. For consistency, I'd recommend coding in a way that works in both global **and** scoped scripts. Otherwise, you'll get upset and frustrated.
