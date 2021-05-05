@@ -18,6 +18,7 @@
     "axios": ">=0.21.1",
     "eleventy-plugin-nesting-toc": "^1.2.0",
     "markdown-it-anchor": "^6.0.1",
-    "pug": "^3.0.1"
+    "pug": "^3.0.1",
+    "xmlhttprequest-ssl": ">=1.6.2"
   }
 }
