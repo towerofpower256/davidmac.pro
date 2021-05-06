@@ -1,6 +1,6 @@
 ---
 title: "Quick ServiceNow Code: Clear the outbound email queue"
-description: Avoid the headache of sending out a mountain of old emails by clearing the email queue before enabling "Email sending" on a development instance.
+description: Avoid the headache of accidentally sending out a mountain of old emails by clearing the email queue before enabling "Email sending" on a development instance.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-05-07
