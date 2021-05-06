@@ -39,7 +39,7 @@ It's simple, but it's saved my skin many times.
 ```js
 var grEmail = new GlideRecord("sys_email");
 grEmail.addQuery("type", "send-ready");
-grEmail.queryNoDomain(); // Same as .query(), but for domain-separated instances
+grEmail.queryNoDomain(); // Same as .query(), but adds support for domain-separated instances
 
 gs.print("Count: "+grEmail.getRowCount());
 while (grEmail.next()) {
