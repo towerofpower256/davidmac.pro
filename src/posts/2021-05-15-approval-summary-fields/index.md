@@ -48,6 +48,8 @@ Because these fields are **List** type reference fields, reference filters can b
 ### Business rule
 The business rule will be responsible for keeping the fields up to date, in response to changes to Approval (sysapproval_approver) records.
 
+I've aimed to make the script fast and effective, touching the database as few times as possible by using a single GlideAggregate query to get the list of approvers.
+
 Create a business rule with these details:
 **Name:** Update task approver fields
 **Table:** Approval [sysapproval_approver]
