@@ -104,6 +104,38 @@ function getGrObject (gr, fields) {
 }
 ```
 
+## GlideQuery
+New in the Paris release of ServiceNow is a new class called **GlideQuery**. [Andrew Albury-Dor](https://andrew.alburydor.com/) let me know about this one, and how you can specify the fields that you want to return.
+
+https://developer.servicenow.com/dev.do#!/reference/api/paris/server/no-namespace/GlideQueryAPI#GQ-get_S_O?navFilter=glidequery
+
+If you want to get the display value of a field, you can add `$DISPLAY` to the end of a field name.
+
+E.g. `caller_id$DISPLAY`
+
+However, it's worth noting that it doesn't allow you to dot-walk through reference fields to get values. 
+
+E.g. you can't use it to get the manager of an incident's assignment group.
+
+```js
+var gqIncident = new global.GlideQuery("incident")
+  .get('552c48888c033300964f4932b03eb092', ["number", "caller_id", "caller_id$DISPLAY", "caller_id.name", "caller_id.email"]);
+
+gs.info(JSON.stringify(gqIncident));
+```
+
+```json
+{
+	"_value": {
+		"sys_id": "552c48888c033300964f4932b03eb092",
+		"number": "INC0010112",
+		"caller_id": "8d56406a0a0a0a6b004070b354aada28",
+		"caller_id$DISPLAY": "Eric Schroeder"
+	},
+	"_lazyValueFetched": false
+}
+```
+
 ## GlideSPScriptable
 I'm not 100% comfortable with using GlideSPScriptable outside of the Service Portal, however it does the job of JSON-ing GlideRecords if you need to.
 
