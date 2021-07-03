@@ -140,3 +140,4 @@ optional arguments:
 * The code isn't my finest and could use some cleaning up and refining.
 * At the moment it only supports either no authentication or basic (username and password). I may look into supporting OAuth later on.
 * To get both the raw and the display value, you currently need to specify the fields you want. I'd like to allow it to naturally capture both the value and display value for a field.
+* I'm not 100% comfortable with having the user enter their username and password in plain text in the console, where it gets saved in their console history. I know other tools do it, but I'm still not comfortable. It'd be nice to provide other methods, like interactively asking for the password, or being able to read the credentials from a file.
