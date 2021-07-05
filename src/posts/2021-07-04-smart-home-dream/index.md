@@ -1,6 +1,6 @@
 ---
-title: "My Smart Home #1 - The Dream"
-description: I want to try my hand at making my home a smart home. This is what I'm planning, and the challenges I'm setting myself.
+title: "My Smart Home - The Dream"
+description: I want to try my hand at making my home a smart home, with automations and IoT gadgets. Here's is what I'm planning, and the challenges I'm setting myself.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-07-04
