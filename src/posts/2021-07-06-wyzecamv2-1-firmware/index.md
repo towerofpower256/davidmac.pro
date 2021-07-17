@@ -1,6 +1,6 @@
 ---
-title: "Smart Home - Wyze Cam v2 WiFi Security Camera"
-description: 
+title: "Wyze Cam v2 WiFi Security Camera with Custom Hobby Firmware"
+description: The Wyze Cam v2 wifi security camera is a very capable camera, great for a smart home project, but I don't want to rely on a vendor's cloud service. Lets take control!
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-07-04
@@ -31,6 +31,8 @@ I picked up a Wyze Cam v2 from eBay for AUD$54.99. This camera came recommended 
 # Custom firmware Xiaomi-Dafang-Hacks
 Out of the box, this camera will want to use the **Wyze CAM** online cloud to deliver services. This won't meet my challenge of keeping all of my smart home tech within my own network and independant from the internet.
 
+[![Vendor cloud service](layout-vendor.png)](layout-vendor.png)
+
 However, the main reason that I chose the Wyze Cam v2 is that it's easy to replace the firmware.
 
 The custom firmware I'm going to go with is **Xiaomi-Dafang-Hacks**, a firmware made by security camera enthusiasts as a replacement for a number of WiFi cameras that use a T10/T20 embedded computer, including the Wyze Cam v2.
@@ -52,14 +54,18 @@ https://www.youtube.com/watch?v=DD7mLfk_l9I
 
 **Do not install the latest official firmware onto the camera!** The newer official firmware from Wyze patches out the method that you'll be using to replace the firmware.
 
+### Ready the SD card
 This process involves a microSD card. I had an old 2GB microSD card lying around from an old smart phone.
 
-First, install the CFW bootloader.
 1. Download the official SD Card formatter tool, and wipe the SD card. **This part is important** and I couldn't get it working without doing this first.
  https://www.sdcard.org/downloads/formatter/
  **Do not do a "Quick format"**. Select "Overwrite format". Yes, it takes longer, but the microSD card needs to be squeaky clean to be recognised by the camera's firmware updater.
  [![SD Card Formatter](SD-Card-Formatter.png)](SD-Card-Formatter.png)
 1. Format the SD card as **FAT32**. Not NTFS, not exFAT, but FAT32.
+
+### Install the CFW bootloader
+First, install the CFW bootloader.
+1. 
 1. Download the CFW-Binary file for the Wyze Cam v2 from Github. This is the replacement bootloader that will let the camera run your own firmware from the SD card.
 1. Open the SD card and make sure that it is absolutely empty. **Don't use a Windows computer for this**, see the notes below.
 1. Copy the CFW-Binary file onto the SD card, and rename it to **"demo.bin"**. This name is important and must match exactly.
@@ -72,6 +78,14 @@ First, install the CFW bootloader.
  *The instructions on GitHub say to wait for about 3 minutes, but mine didn't take anywhere near that long.*
 1. Remove the power cable from the camera, and remove the SD card.
 
+#### Cleaning up after a failed attempt
+It's important that the "demo.bin" file is the only file on the SD card.
+
+Unfortunately, the factory firmware will automatically create some new files when it starts, including folders called "**record**" and "**time_lapse**". While the presence of these files doesn't mean that it failed, you will need to delete these files and folders between each attempt.
+
+[![Extra files created by the factory firmware](extra-files.png)](extra-files.png)
+
+### Install the new firmware
 Now it's time to load the new firmware onto the SD card.
 1. Clone the repository from github. If you are on Windows download the repository as zip file. Make sure nothing gets windows line endings.
 1. Copy everything from "firmware_mod" folder into the root of the microSD.
@@ -80,18 +94,16 @@ Now it's time to load the new firmware onto the SD card.
 1. To setup the wifi, copy the file `/config/wpa_supplicant.conf.dist` to `/config/wpa_supplicant.conf` (without the `.dist`). Open the new file that you created, and update it to match your wifi network (should just need to change the SID / network name and the password).
  **Make sure that this does not use Windows-style line endings!**
 1. Insert the SD card into the camera, and then connect the power cable.
-1. You can now login at https://dafang or your cameras ip adress with the default credentials root/ismart12
+1. You can now login at https://dafang or your cameras IP adress with the default credentials root/ismart12
 
 If all went well, you should be able to see a web control panel for the camera, and a live feed from the camera on the main page.
 
 [![Homepage](homepage.png)](homepage.png)
 
-(write something here about if the flash fails, and needing to delete those extra files that the stock firmware creates, that "timelapse" folder and "timestamp" file)
-
 ### Don't use Windows to add the CFW bootloader
 The key to the bootloader being replaced is that the replacement bootloader needs to be the **only** thing on the SD Card.
 
-Windows has a nasty habbit of making itself at home, and creating extra files on storage devices, including SD cards and USB sticks. Most of this lives in the system hidden "**System Volume Information**" folder.
+Windows has a nasty habit of making itself at home, and creating extra files on storage devices, including SD cards and USB sticks. Most of this lives in the system hidden "**System Volume Information**" folder.
 
 [![System Volume Information](system-volume-information.png)](system-volume-information.png)
 
@@ -102,7 +114,7 @@ When it comes to copying the CFW bootloader onto the SD card, you should:
  How to make a bootable Lubuntu USB stick: https://www.lifewire.com/try-lubuntu-16-04-windows-10-4037886
 * Always delete every other file on the SD card. If Windows has created that "System Volume Information" folder on the SD card, delete it.
 
-## Self-signed certificate
+### Self-signed certificate
 Although the firmware's web server uses secure connections over HTTPS, its security certificate is self-signed. This means that your web browser is going to complain about it almost every time you connect to it. This is OK, and is safe to ignore.
 
 [![Chrome certificate security warning](privacy-error.png)](privacy-error.png)
@@ -114,10 +126,10 @@ I had some issues trying to install the firmware, and I wanted to see if I was d
 
 First, I opened up the camera, removing the 2 screws from the bottom, and *carefully* removed the base by wiggling it away from the camera. The base is held in by 2 clips on the side.
 
-I did find this dissassembly video helpful in opening it without breaking it.
+I did find this disassembly video helpful in opening it without breaking it.
 https://www.youtube.com/watch?v=yYrLeWjRiqU
 
-Once the buttom was off, I spotted 3 little pins on the side of one of the boards. **Bingo.**
+Once the bottom was removed, I spotted 3 little pins on the side of one of the boards. **Bingo.**
 
 Although they weren't marked, I suspected that they were GND, TX, and RX. I didn't have an FTDI USB to serial adapter available, but I have plenty of spare Arduino's lying around which I know that I can use instead of an FTDI USB to serial adapter. 
 * I grabbed an Arduino Nano and put it on a breadboard,
@@ -134,7 +146,39 @@ The baud rate was **115200**.
 
 In the Arduino IDE serial monitor, I could see the messages from the camera as it booted up. This debugging was instrumental in resolving my issue, and told me exactly where I'd stuffed up.
 
-(sample serial output)
+[![Booting serial output](arduino-serial-monitor.png)](arduino-serial-monitor.png)
+
+Here's the serial output of the bootloader being updated with the CFW bootloader.
+
+```
+FWGRADEUP=FACTORY!!!!!!!!!!!!!
+SD card is insert!!!
+enable to use mmc 0:1 for fatls
+Interface:  MMC
+  Device 0: Vendor: Man 000003 Snr 7a3aff00 Rev: 0.0 Prod: SU02G⸮
+            Type: Removable Hard Disk
+            Capacity: 1938.5 MB = 1.8 GB (3970048 x 512)
+Filesystem: FAT16 "NO NAME    "
+file_fat_detectfs OK!!
+reading factory_ZMC6tiIDQN
+read factory_ZMC6tiIDQN sz -1 hdr 64
+factory_ZMC6tiIDQN not found!!!
+jiabo_do_auto_update!!!!!!!!!!!!!!!!!!!!!!!!
+gpio_request lable = sdupgrade gpio = 46
+setup_button set long!!!!!!!!!!!!!!!!!!!
+Interface:  MMC
+  Device 0: Vendor: Man 000003 Snr 7a3aff00 Rev: 0.0 Prod: SU02G⸮
+            Type: Removable Hard Disk
+            Capacity: 1938.5 MB = 1.8 GB (3970048 x 512)
+Filesystem: FAT16 "NO NAME    "
+the manufacturer 5e
+SF: Detected ZB25VQ128
+
+reading demo.bin <-- This is the important part
+reading demo.bin
+jiabo_au_check_cksum_valid!!!!!!!!!!!!!!!!!!!!!!!!
+jiabo_idx=4
+```
 
 ## The result
 The end result shocked me with just how many settings were available. At a glance, it was going to fulfil my requirements, and more!
