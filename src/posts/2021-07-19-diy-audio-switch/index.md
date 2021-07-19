@@ -9,7 +9,7 @@ tags:
 eleventyExcludeFromCollections: false
 ---
 
-# The problem
+## The problem
 At my home computer, I like to use speakers for sound, but I need to use headphones for when I'm using the microphone for either voice chat in games or video calls.
 
 When I want to switch from speakers to headphones, I need to reach behind my computer, unplug something, and plug something back in.
@@ -18,7 +18,7 @@ This is a problem when an application is already running (e.g. a computer game),
 
 [![Problem diagram](current-problem-diagram.png)](current-problem-diagram.png)
 
-# The solution
+## The solution
 The idea I had was a relay or switch of sorts to be able to switch between audio outputs.
 
 [![Solution diagram](solution-diagram.png)](solution-diagram.png)
