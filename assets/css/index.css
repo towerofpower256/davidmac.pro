@@ -327,9 +327,12 @@ a[href].direct-link:focus:visited,
 }
 
 /* Syntax highlighting line numbers */
+/*
 pre {
   counter-reset: lineNumber;
 }
+*/
+/*
 code .highlight-line:before {
   -webkit-user-select: none;
   border-right: 1px solid #404040;
@@ -341,9 +344,10 @@ code .highlight-line:before {
   margin-right: 1.2em;
   padding-right: 1.2em;
   text-align: right;
-  /*width: 2.4em;*/
+  width: 2.4em;
   width: 0.5em;
 }
+*/
 
 /* Home splash styling */
 .home-splash {
