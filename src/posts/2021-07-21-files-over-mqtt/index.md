@@ -89,9 +89,9 @@ https://mqttx.app/
 
 This didn't work that well. The application wanted to treat the message as a string, which mangled the binary bytes and corrupted the files. Also, the app didn't have the ability to save the payload as a file, only view it as text within the app.
 
-In fact, the large payload size of the video message actually jammed and froze the application. Ha!
+In fact, the large payload size of the video message actually jammed and froze the application. It never ran again. Ha!
 
-(screenshot of the payloads in the app)
+[![MQTTX](mqttx.png)](mqttx.png)
 
 ## Failed attempt 2 - MQTT Explorer
 Next, I attempted to capture the messages using the MQTT Explorer application. This tool was highly recommended by a few different people on the internet.
@@ -102,7 +102,9 @@ Sadly, this had the same issues with MQTTX, which wanted to treat the payload as
 
 MQTT Explorer didn't crash with the payload size, but it still couldn't save the payloads as a file.
 
-(screenshot of the payloads in the app)
+[![MQTT Explorer 1](mqtt-explorer-1.png)](mqtt-explorer-1.png)
+
+[![MQTT Explorer 2](mqtt-explorer-2.png)](mqtt-explorer-2.png)
 
 ## Failed attempt 3 - command line tool 'mosquitto_sub'
 Next, I figured I'd be able to use a command line tool to subscribe and capture the payload, and then simply pipe that out to a file. Sounds simple, right?
@@ -115,8 +117,6 @@ Sadly, this failed as well. Piping in Windows CMD and PowerShell treats the pipe
 ```ps
 .\mosquitto_sub.exe -h 192.168.29.200 -p 1883 -C 1 -t "myhome/dafang/motion/snapshot/image" >> D:\Dump\motion-snapshot.jpg
 ```
-
-(screenshot of file contents, mangled)
 
 In future, I might explore a suggestion on Stack Overflow to use the PowerShell `System.IO.BinaryWriter` and `System.Diagnostics.ProcessStartInfo ` recommended here:
 
