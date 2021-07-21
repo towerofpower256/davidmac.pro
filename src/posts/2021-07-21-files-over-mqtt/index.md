@@ -1,11 +1,12 @@
 ---
-title: "Sending files, pictures, and videos of MQTT"
-description: 
+title: "Receiving files, pictures, and videos over MQTT"
+description: IoT devices use MQTT for a lot of things, but why is it so difficult when they use MQTT to send files, pictures, and videos?
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-07-21
 tags:
 - Electronics
+- IoT
 eleventyExcludeFromCollections: false
 ---
 
@@ -44,6 +45,8 @@ While I was playing around with a WiFi security camera, it was able to send **pi
 
 The issue is that most MQTT clients have issues receiving MQTT messages that aren't text, and freak out when the payloads are binary or files.
 
+So how can I test if it's working? How can I quickly receive those motion-event snapshots?
+
 ## Solution - Python
 I was able to write a quick little Python script that was able to subscribe to the MQTT messages, and then save the contents of those messages as binary files. The result was a success, and I was able capture & save both pictures and videos.
 
@@ -80,6 +83,8 @@ c.on_message = on_message
 c.loop_forever()
 ```
 
+[![Saved files](saved-files.png)](saved-files.png)
+
 ***Success!***
 
 ## Failed attempt 1 - MQTTX
@@ -89,7 +94,7 @@ https://mqttx.app/
 
 This didn't work that well. The application wanted to treat the message as a string, which mangled the binary bytes and corrupted the files. Also, the app didn't have the ability to save the payload as a file, only view it as text within the app.
 
-In fact, the large payload size of the video message actually jammed and froze the application. It never ran again. Ha!
+In fact, the large payload size of the video message actually jammed and froze the application. It never ran again. ***Ha!***
 
 [![MQTTX](mqttx.png)](mqttx.png)
 
@@ -98,13 +103,13 @@ Next, I attempted to capture the messages using the MQTT Explorer application. T
 
 http://mqtt-explorer.com/
 
-Sadly, this had the same issues with MQTTX, which wanted to treat the payload as text and mangled the binary payload.
-
-MQTT Explorer didn't crash with the payload size, but it still couldn't save the payloads as a file.
-
 [![MQTT Explorer 1](mqtt-explorer-1.png)](mqtt-explorer-1.png)
 
 [![MQTT Explorer 2](mqtt-explorer-2.png)](mqtt-explorer-2.png)
+
+Sadly, this had the same issues with MQTTX, which wanted to treat the payload as text and mangled the binary payload.
+
+MQTT Explorer didn't crash with the payload size, but it still couldn't save the payloads as a file.
 
 ## Failed attempt 3 - command line tool 'mosquitto_sub'
 Next, I figured I'd be able to use a command line tool to subscribe and capture the payload, and then simply pipe that out to a file. Sounds simple, right?
@@ -112,11 +117,11 @@ Next, I figured I'd be able to use a command line tool to subscribe and capture 
 `mosquitto_sub` comes with the Mosquitto application.
 https://mosquitto.org/
 
-Sadly, this failed as well. Piping in Windows CMD and PowerShell treats the piped data as text, which mangles the binary payload. Same issue as the previous attempts.
-
-```ps
+```powershell
 .\mosquitto_sub.exe -h 192.168.29.200 -p 1883 -C 1 -t "myhome/dafang/motion/snapshot/image" >> D:\Dump\motion-snapshot.jpg
 ```
+
+Sadly, this failed as well. Piping in Windows CMD and PowerShell treats the piped data as text, which mangles the binary payload. Same issue as the previous attempts.
 
 In future, I might explore a suggestion on Stack Overflow to use the PowerShell `System.IO.BinaryWriter` and `System.Diagnostics.ProcessStartInfo ` recommended here:
 
