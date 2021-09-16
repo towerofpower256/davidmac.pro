@@ -7,6 +7,7 @@ date: 2021-09-15
 tags:
 - My creation
 - Coding
+- Javascript
 eleventyExcludeFromCollections: false
 ---
 

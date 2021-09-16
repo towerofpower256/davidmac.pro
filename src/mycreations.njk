@@ -15,7 +15,7 @@ eleventyNavigation:
 <div class="container home-content">
     <div class="row">
         <div class="col-md-12">
-            {% set postslist = collections[ "My creation" ] %}
+            {% set postslist = collections[ "My creation" ]  | reverse %}
 
             {% include "postlistfull.njk" %}
         </div>

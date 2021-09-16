@@ -7,6 +7,8 @@ date: 2021-07-02
 tags:
 - ServiceNow
 - My creation
+- Coding
+- Python
 eleventyExcludeFromCollections: false
 ---
 
