@@ -1,0 +1,23 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: My creations
+  order: 3
+---
+
+<div class="flex-fill home-splash">
+    <div class="home-splash-content">
+        <h1>My creations</h1>
+        <h2>Some personal tools, utilities, programs, and applications that I've created</h2>
+    </div>
+</div>
+
+<div class="container home-content">
+    <div class="row">
+        <div class="col-md-12">
+            {% set postslist = collections[ "My creation" ] %}
+
+            {% include "postlistfull.njk" %}
+        </div>
+    </div>
+</div>
