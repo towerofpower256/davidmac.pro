@@ -3,7 +3,7 @@ title: "Wyze Cam v2 WiFi Security Camera - Sept 2021 Thoughts So Far"
 description: I've been using the Wyze Cam v2 with custom firmware for a few months now. There are things I like, and faced some challenges. Here are my thoughts so far.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
-date: 2021-09-24
+date: 2021-09-30
 tags:
 - Smart home
 eleventyExcludeFromCollections: false
