@@ -1,6 +1,6 @@
 ---
 title: "ServiceNow 'schema' and 'meta' APIs, and why system integrations should use them"
-description: 
+description: Don't use the 'admin' role because an integration wants to know about ServiceNow tables and fields, use the 'schema' and 'meta' APIs instead.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2021-11-26
@@ -80,7 +80,7 @@ The rest aren't relevant for normal tables, but may be relevant for special tabl
 }
 ```
 
-## Meta
+### Meta
 This API returns a list of all available elements / fields on a table in ServiceNow, as well as other useful details about them, including:
 * reference field and auto-complete configuration
 * available choices for a choice field
