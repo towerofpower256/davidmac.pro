@@ -130,7 +130,7 @@ gm.render();
 ### glide_confirm
 A confirmation pop-up with "Don't save", "Cancel", and "Save" buttons.
 
-[![glide_confirm.png](glide_confirm.png)](glide_confirm.png)
+[![glide_confirm](glide_confirm.png)](glide_confirm.png)
 
 ```js
 var gm = new GlideModal("glide_confirm", false, 600);
@@ -146,7 +146,7 @@ gm.render();
 ### glide_confirm_basic
 A confirmation pop-up with "OK" and "Cancel" buttons without an icon.
 
-[![glide_confirm_basic.png](glide_confirm_basic.png)](glide_confirm_basic.png)
+[![glide_confirm_basic](glide_confirm_basic.png)](glide_confirm_basic.png)
 
 ```js
 var gm = new GlideModal("glide_confirm_basic", true, 600);
@@ -160,7 +160,7 @@ gm.render();
 ### glide_confirm_standard
 A confirmation pop-up with "OK" and "Cancel" buttons and an info / warning icon.
 
-[![glide_confirm_standard.png](glide_confirm_standard.png)](glide_confirm_standard.png)
+[![glide_confirm_standard](glide_confirm_standard.png)](glide_confirm_standard.png)
 
 ```js
 var gm = new GlideModal("glide_confirm_standard", true, 600);
@@ -175,7 +175,7 @@ gm.render();
 ### glide_info
 A simple pop-up with an info icon and an "OK" button that stretches with width of the modal window.
 
-[![glide_info.png](glide_info.png)](glide_info.png)
+[![glide_info](glide_info.png)](glide_info.png)
 
 ```js
 var gm = new GlideModal("glide_info", true, 600);
@@ -188,7 +188,7 @@ gm.render();
 ### glide_warn
 A simple pop-up without an icon.
 
-[![glide_warn.png](glide_warn.png)](glide_warn.png)
+[![glide_warn](glide_warn.png)](glide_warn.png)
 
 ```js
 var gm = new GlideModal("glide_warn", true, 600);
@@ -201,7 +201,7 @@ gm.render();
 ### glide_prompt
 Prompt the user to enter some text.
 
-[![glide_prompt.png](glide_prompt.png)](glide_prompt.png)
+[![glide_prompt](glide_prompt.png)](glide_prompt.png)
 
 ```js
 var gm = new GlideModal("glide_prompt", true, 600);
@@ -209,5 +209,32 @@ gm.setTitle("Test title");
 gm.setPreference("title", "Test body text");
 gm.setPreference("onPromptComplete", function(value) {alert("You clicked on 'Ok', value was: "+value)});
 gm.setPreference("onPromptCancel", function(value) {alert("You clicked on 'Cancel', value was: "+value)});
+gm.render();
+```
+
+### glide_progress_standard
+Window with a "Close" button, an info / warning icon, and a scrolling progress bar. The progress bar is an animated GIF image and cannot be updated as a typical progress bar.
+
+[![glide_progress_standard](glide_progress_standard.png)](glide_progress_standard.png)
+
+```js
+var gm = new GlideModal("glide_progress_standard", false, 600);
+gm.setTitle("Test title");
+gm.setPreference("title", "Test body text");
+gm.setPreference("warning", "false");
+gm.setPreference("onPromptClose", function() {alert("You clicked on 'Close'")});
+gm.render();
+```
+
+### glide_progress_no_button
+Window with an info / warning icon and a scrolling progress bar. The progress bar is an animated GIF image and cannot be updated as a typical progress bar.
+
+[![glide_progress_no_button](glide_progress_no_button.png)](glide_progress_no_button.png)
+
+```js
+var gm = new GlideModal("glide_progress_no_button", false, 600);
+gm.setTitle("Test title");
+gm.setPreference("title", "Test body text");
+gm.setPreference("warning", "false");
 gm.render();
 ```
