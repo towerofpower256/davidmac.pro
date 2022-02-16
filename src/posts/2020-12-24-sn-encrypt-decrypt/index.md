@@ -47,6 +47,12 @@ var decrString = encr.decrypt(encrString);  // 'my_password'
 gs.print("Decrypted string = " + decrString);
 ```
 
+Quickly decrypt something.
+
+```js
+new GlideEncrypter().decrypt(encryptedString)
+```
+
 You can use this same class to decrypt something from a 2-way password field. In this example, the password from an LDAP Server record.
 
 ```js
