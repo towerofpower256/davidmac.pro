@@ -58,6 +58,15 @@ gm.render();
 You can read about them more on the ServiceNow Developer website. Although it says `GlideModalV3`, using `GlideModal` will use the most up to date version of GlideModal.
 https://developer.servicenow.com/dev.do#!/reference/api/*/client/c_GlideModalClientSideV3API
 
+## Service Portal
+Unfortunately, GlideModal does not work with the Service Portal. This includes:
+* In a Client Script on a form, or a Catalog Client Script on a catalog item, it throws a Javascript error saying that GlideModal is undefined.
+* In a UI action that is client-side, which aren't available in the form page of the Service Portal anyway.
+
+If you want to use modal pop-up windows in the Service Portal, consider creating a custom widget and use the `$uibModal` Angular provider.
+
+https://serviceportal.io/modal-windows-service-portal/
+
 ## Preferences
 *"But Dave, how do I know what preferences to use with `.setPreference()`?*"
 
