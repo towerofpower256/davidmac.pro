@@ -7,6 +7,7 @@ date: 2022-05-23
 tags:
 - Smart home
 - Electronics
+- IoT
 eleventyExcludeFromCollections: false
 ---
 
