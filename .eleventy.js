@@ -112,6 +112,8 @@ module.exports = function(eleventyConfig) {
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
+          res.statusCode = 404;
+          res.statusMessage = "Content not found";
           res.write(content_404);
           res.end();
         });
