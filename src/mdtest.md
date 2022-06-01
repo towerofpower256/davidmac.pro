@@ -69,3 +69,18 @@ Table
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
+
+Details section, collapsible?
+<details>
+  <summary>Click to expand, test text!</summary>
+  
+  ### Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+
+```js
+var lolwut = "asd";
+```
+</details>
