@@ -16,14 +16,14 @@ It's easy to reflash and reprogram your controller when you're playing around wi
 But what happens when you've installed the controller in something that's nowhere near your computer and you want to reconfigure or change things? Like an IoT controller for your garage door. 
 
 It's tedious and annoying when you have to:
-* pull it out of whatever it's in
-* plug it into your main computer
-* reprogram it
-* reinstall it back into wherever you removed it from
+1. pull it out of whatever it's in
+1. plug it into your main computer
+1. reprogram it
+1. reinstall it back into wherever you removed it from
 
 [![Flash it a lot](flash-alot-meme.png)](flash-alot-meme.png)
 
-## The command-line serial interface
+## The serial command-line interface
 A solution to this problem is to give the controller a command-line interface over the serial connection, and use it to update the controller's configuration.
 
 This allows you to make changes to the controller and to make the controller do things without needing to reprogram it. It still needs a computer, but you won't need a programmer on it, any ol' computer with a USB port will do.
@@ -208,7 +208,7 @@ void doSerial() {
 ```
 </details>
 
-## Version 4 - word commands, non-blocking
+### Version 4 - word commands, non-blocking
 Now uses commands instead of just single characters. Each command is on a single line. The commands are also not case-sensitive, so you can go crazy on the SHIFT key and the commands will still work
 
 * OK = prints the message `I am OK`.
@@ -369,7 +369,7 @@ void loop() {
 ```
 </details>
 
-## Version 5 - word commands and paramters
+### Version 5 - word commands and paramters
 A relatively complete serial interface, passing CLI details between functions, each command is its own function instead of everything bunched into a single function.
 
 I got rid of the `millis` being outputted to the console, I've proven that that part works just fine.
@@ -534,7 +534,7 @@ void loop() {
 ```
 </details>
 
-## Version 6 - a command line interface class
+### Version 6 - a command line interface class
 The big one.
 
 The CLI interface is built out into a object oriented library, and broken out into separate files instead of one massive file.
@@ -570,6 +570,18 @@ UNK CMD
 Commands are defined on startup. Each command is a `MyCliCmd` object, and uses callback functions to handle the incoming command. The command buffer is a `MyCliBuffer` object with helper functions for reading the buffer.
 
 ```cpp
+void cliOK(char *cmd, char* buffer) {
+  // ...
+}
+
+void cliMillis(char *cmd, char* buffer) {
+  // ...
+}
+
+void cliSetLed(char *cmd, char* buffer) {
+  // ...
+}
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -578,15 +590,9 @@ void setup() {
   // Setup the CLI
   cli = MyCli();
 
-  // Explicitly construct the CMD objects, then pass them through.
-  MyCliCmd cmdOk = MyCliCmd("ok", &cliOK);
-  cli.addCmd(&cmdOk);
-  
-  MyCliCmd cmdSet = MyCliCmd("set", &cliSetLed);
-  cli.addCmd(&cmdSet);
-
-  MyCliCmd cmdMillis = MyCliCmd("millis", &cliMillis);
-  cli.addCmd(&cmdMillis);
+  cli.addCmd("ok", &cliOK);
+  cli.addCmd("set", &cliSetLed);
+  cli.addCmd("millis", &cliMillis);
 }
 
 void loop() {
@@ -598,8 +604,8 @@ void loop() {
 Here's an example CLI command for setting the onboard LED.
 
 ```cpp
-void cliSetLed(char *cmd, MyCliBuffer& buffer) {
-  char* cliPart = buffer.readTo(CLI_DELIM_SPACE_EOL);
+void cliSetLed(char *cmd, char* buffer) {
+  char* cliPart = strtok(buffer, CLI_DELIM_SPACE_EOL);
   strupr(cliPart); // Make uppercase, don't care about case sensitivity
   
   if (!strcmp(cliPart, ledValOn)) {
@@ -889,7 +895,7 @@ void loop() {
 ```
 </details>
 
-## Version 7 - a command line interface class and settings
+### Version 7 - a command line interface class and settings
 Similar to the previous version with a library function to keep things consistent, this version includes a `MySettings` object full of configurations, and there are CLI commands to get and set the configuration.
 
 This is very close to my goal of a configuration that can be updated on-the-fly, and without needing to re-flash the controller any time the configuration has changed.
