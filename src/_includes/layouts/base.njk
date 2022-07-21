@@ -12,14 +12,14 @@
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <!-- Open Graph meta -->
-    <meta property='og:title' content='{{ title or metadata.title }}'/>
-    <meta property='og:image' content='{{ metadata.url }}{{ metaimage }}'/>
-    <meta property='og:description' content='{{ description or metadata.description }}'/>
+    <meta name="title" property='og:title' content='{{ title or metadata.title }}'/>
+    <meta name="image" property='og:image' content='{{ metadata.url }}{{ metaimage }}'/>
+    <meta name="description" property='og:description' content='{{ description or metadata.description }}'/>
     <meta property='og:url' content='{{ metadata.url }}{{ page.url }}' />
     <meta property="og:type" content="blog" />
     <meta property="og:site-name" content="{{metadata.title}}" />
     <meta property="article:published_time" content="{{page.date.toISOString()}}" />
-    <meta property="article:author" content="{{metadata.author.name}}" />
+    <meta name="author" property="article:author" content="{{metadata.author.name}}" />
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
