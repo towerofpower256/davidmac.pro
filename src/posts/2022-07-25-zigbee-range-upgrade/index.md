@@ -55,7 +55,7 @@ Zigbee in-line power relays are no good, I'm in a rental and can't go making cha
 
 Zigbee lights are no good, I'd need to keep the lights turned on at the light switch at all times.
 
-However, I had another spare CC2531 USB stick which had a case and an antenna. I've been using them as a Zigbee coordinator, but it looks like I can use them as routers as well. I could install it in in a USB power charger downstairs in the living room and relay Zigbee traffic up to the coordinator upstairs.
+However, I had another spare CC2531 USB stick which had a case and an antenna. I've been using them as a Zigbee coordinator, but it looks like I can use them as routers as well. I could install it downstairs in the living room with a USB power charger, and use it to relay Zigbee traffic up to the coordinator upstairs.
 
 One of these for $12.99 AUD.
 https://www.ebay.com.au/itm/224741527257
