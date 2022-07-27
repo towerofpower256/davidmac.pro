@@ -55,6 +55,14 @@ p:last-child {
   display: block;
 }
 
+.tmpl-post video {
+  max-width: 100%;
+}
+
+.post-content img {
+  border: solid 1px black;
+}
+
 .tmpl-post blockquote {
   background-color: #ececff;
   border-left: solid 4px #4b4bff;
