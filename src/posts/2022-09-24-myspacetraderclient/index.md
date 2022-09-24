@@ -51,7 +51,7 @@ Viewing a system, what's in it, and what's traded.
 [![System view](my-client-system-view.png)](my-client-system-view.png)
 
 My super-cool Deal Finder!
-[![Trading a good](my-client-command-trade.png)](my-client-command-trade.png)
+[![Trading a good](my-client-deal-finder.png)](my-client-deal-finder.png)
 
 I wanted to add in some additional features that I felt some of the other clients were missing, or features that I wanted for myself.
 
