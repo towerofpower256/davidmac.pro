@@ -1,6 +1,6 @@
 ---
-title: ""
-description: 
+title: "MySpaceTraderClient"
+description: I made a front-end for the online game Space Traders to teach myself how to create web apps from scratch using NodeJS and React. It was really fun and educational, and I"m pretty proud of what I came up with.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2022-09-24
