@@ -1,6 +1,6 @@
 ---
 title: "MySpaceTraderClient"
-description: I made a front-end for the online game Space Traders to teach myself how to create web apps from scratch using NodeJS and React. It was really fun and educational, and I"m pretty proud of what I came up with.
+description: I made a front-end for the online game Space Traders to teach myself how to create web apps from scratch using NodeJS and React. It was really fun and educational, and I'm pretty proud of what I came up with.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2022-09-24
@@ -11,7 +11,7 @@ tags:
 eleventyExcludeFromCollections: false
 ---
 
-Here's a front-end I made for a multiplayer game. I hope you like it!
+Here's a front-end I made for a multiplayer game. Give it a go, I hope you like it!
 
 The game:
 <a href="https://coruscating-longma-859850.netlify.app/" target="_blank">https://coruscating-longma-859850.netlify.app/</a>
@@ -20,20 +20,18 @@ The source:
 <a href="https://github.com/towerofpower256/MySpaceTraderClient" target="_blank">https://github.com/towerofpower256/MySpaceTraderClient</a>
 
 ## What is Space Traders?
-
-![Space Traders](space-traders-logo.jpg)
-
 https://spacetraders.io/
 
 Space Traders is a multiplayer game where you fly space ships around and trade goods, trying to make as much money as you can.
 
-The unique spin on this game is that there's no front-end, it's all just web APIs. It's up to **you** to create the front-end to the game.
-
-(diagram of the game)
-
 The gist of the game is simple: trade goods through space to make a profit. You can buy better ships that are faster and with larger cargo holds to make more profit. The market fluctuates as you and other players buy and sell goods.
 
-## My game client
+The unique spin on this game is that there's no front-end, it's all just web APIs. It's up to **you** to create the front-end to the game.
+
+[![Space trader diagram](space-trader-diagram.png)](space-trader-diagram.png)
+
+## My front-end
+I thought I'd have some fun and make a Space Traders front-end of my own to learn how to made a web app from scratch. A lot of my web dev experience comes from working in the ServiceNow platform, and I wanted to see if I could make something new.
 
 The ship command page.
 [![The command page](my-client-command.png)](my-client-command.png)
@@ -67,19 +65,18 @@ I wanted to add in some additional features that I felt some of the other client
 I used inspiration from other clients that people had made, including:
 * Airlock by Eli Lamb
  [airlock.elilamb.nz](https://airlock.elilamb.nz/)
+
 * Erebos by Kaishiyoku
  [erebos.kaishi.de](https://erebos.kaishi.de/)
+
 * Vocivos by kurt1288
  [kurt1288.github.io/Vocivos](https://kurt1288.github.io/Vocivos/)
+
 * Exo by Nick Howell
  [spacetraders.nickhowell.com](https://spacetraders.nickhowell.com/)
 
- 
-
 ## What did I learn?
-I wanted to play this game to learn how to make a web app from scratch. A lot of my web dev experience comes from working in the ServiceNow platform, and I wanted to see if I could make something new.
-
-Oh wow, did I learn a lot!
+Oh wow, I learned a lot!
 
 ### JavaScript ES6
 I learned to love Javascript ES6 and what comes with it.
