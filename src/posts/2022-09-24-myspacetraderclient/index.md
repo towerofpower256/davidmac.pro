@@ -58,9 +58,9 @@ I wanted to add in some additional features that I felt some of the other client
 * I made a **"Deal Finder"** which searches market data that you know, and identifying profitable trade runs.
 * I wanted to be able to move, trade, and manage my ships all from the same page, without jumping around from page to page.
 * I made a little diagram of the systems so I could visualise the layout of a system and what's in it.
-* I made a **"Welcome"** splash page to introduce new placers to what the game was and how to play it. Otherwise, they go in blind.
+* I made a **"Welcome"** splash page to introduce new players to Space Traders, what the game is, and how to play it.
 * I made a **"History"** page to view a history of trades and ship movement, to help in reviewing what's happened in the past.
-* I made my client mobile-friendly using Bootstrap. I found that many of the other clients appeared clunky when used on mobile phones (e.g. tables overflowing out to the side and stretching the page).
+* I made my front-end mobile-friendly using Bootstrap.
 
 I used inspiration from other clients that people had made, including:
 * Airlock by Eli Lamb
@@ -92,7 +92,7 @@ JavaScript **promises** and asynchronous functions took a bit to wrap my head ar
 ### Logging into the app and remembering
 I learned how to remember that a user is logged into the app, even after the page is closed.
 
-It does so by storing the user's login token in the browsers storage. When the app starts, it checks with the game whether the token is still valid and either keeps using the valid token, or clears the token and forces the user to log back in if the token has expired.
+It does so by storing the user's login token in the browser's storage. When the app starts, it checks with the game whether the token is still valid and either keeps using the valid token, or clears the token and forces the user to log back in if the token has expired.
 
 ### React contexts
 I used **React contexts** heavily throughout the app to store game data, and automatically update components when game data changes.
@@ -108,7 +108,7 @@ I also learned some caveats and gotcha's to watch out for with React contexts. I
 I learned to use contexts as low down in the tree of components as possible. Instead of using contexts, I'd usually load the data from the browser's storage.
 
 ### Browser data storage
-At first I was scared to store data within the browser's internal storage, but it turned out to be very easy!
+At first, I was scared to store data within the browser's internal storage, but it turned out to be very easy!
 
 I stored a lot of game related data into the user's browser storage as JSON objects. This had a big advantage of remembering a lot of the game data (locations, ships, market data) after the page has been closed, instead of having to refresh everything in-bulk every time the user opens the app.
 
