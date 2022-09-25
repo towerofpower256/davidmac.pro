@@ -34,23 +34,29 @@ The unique spin on this game is that there's no front-end, it's all just web API
 I thought I'd have some fun and make a Space Traders front-end of my own to learn how to made a web app from scratch. A lot of my web dev experience comes from working in the ServiceNow platform, and I wanted to see if I could make something new.
 
 The ship command page.
+
 [![The command page](my-client-command.png)](my-client-command.png)
 
 Managing a ship.
+
 [![Managing a ship](my-client-command-manage.png)](my-client-command-manage.png)
 
 Moving a ship.
+
 [![Moving a ship](my-client-command-move.png)](my-client-command-move.png)
 
 Buying and selling goods.
+
 [![Selecting a good to trade](my-client-command-trade-select.png)](my-client-command-trade-select.png)
 
 [![Selecting a good to trade](my-client-command-trade.png)](my-client-command-trade.png)
 
 Viewing a system, what's in it, and what's traded.
+
 [![System view](my-client-system-view.png)](my-client-system-view.png)
 
 My super-cool Deal Finder!
+
 [![Trading a good](my-client-deal-finder.png)](my-client-deal-finder.png)
 
 I wanted to add in some additional features that I felt some of the other clients were missing, or features that I wanted for myself.
