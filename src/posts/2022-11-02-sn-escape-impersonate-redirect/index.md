@@ -3,10 +3,9 @@ title: "How to un-impersonate in ServiceNow when locked in the service portal"
 description: Don't you hate it when you impersonate a user in ServiceNow, but you can't un-impersonate because a redirect keeps you stuck in the service portal? Here's a quick way to escape the redirect prison.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
-date: 2022-10-10
+date: 2022-11-02
 tags:
 - ServiceNow
-- Coding
 eleventyExcludeFromCollections: false
 ---
 
