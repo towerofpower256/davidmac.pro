@@ -126,9 +126,10 @@ This tells me:
 ## Alternative, process holistically
 In the above example, we talked about multiple child records that need to update a parent record with data from themselves.
 
-An alternative is to use a script that updates the parent by first looking back at ***all children**, instead of just reflecting the child record that triggered the update.
+An alternative is to use a script that updates the parent by first looking back at **all children**, instead of just reflecting the child record that triggered the update.
 
-Consider the "Approvers" list field that I talked about in my previous article: [Better SN Approvals #4 - Approver Fields on Tasks](/posts/2021-05-15-approval-summary-fields).
+Consider the "Approvers" list field that I talked about in my previous article: 
+[Better SN Approvals #4 - Approver Fields on Tasks](/posts/2021-05-15-approval-summary-fields).
 
 It triggers a script which looks back at ***all approvers*** for that record and populates the field, reflecting them all at once, instead of just adding a single user for the one approval record that triggered the update.
 
