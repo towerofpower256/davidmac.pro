@@ -6,6 +6,7 @@ imageThumbnail: featured-thumbnail.jpg
 date: 2023-02-21
 tags:
 - ServiceNow
+- Solution
 eleventyExcludeFromCollections: false
 ---
 
