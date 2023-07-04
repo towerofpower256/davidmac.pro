@@ -1,6 +1,6 @@
 ---
 title: "ServiceNow Import Tips #2 - Scripts to start imports"
-description: 
+description: Make imports and transforms part of your ServiceNow automations. Did you know that you can kick-off data sources and transforms using scripts? So many possibilties!
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2023-07-04
