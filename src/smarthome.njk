@@ -1,0 +1,23 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Smart home
+  order: 5
+---
+
+<div class="flex-fill home-splash">
+    <div class="home-splash-content">
+        <h1>Smart home</h1>
+        <h2>Smart homes are getting more and more popular, and here's me having fun with them</h2>
+    </div>
+</div>
+
+<div class="container home-content">
+    <div class="row">
+        <div class="col-md-12">
+            {% set postslist = collections[ "Smart home" ]  | reverse %}
+
+            {% include "postlistfull.njk" %}
+        </div>
+    </div>
+</div>

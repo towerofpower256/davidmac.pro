@@ -1,38 +1,13 @@
 ---
 layout: layouts/simple.njk
-permalink: "posts/{{pagination.pageNumber + 1}}/index.html"
 eleventyNavigation:
-  key: Posts
+  key: All posts
   order: 2
-pagination:
-  data: collections.posts
-  size: 20
-  alias: posts
-  reverse: true
 ---
 
-<h1>Posts</h1>
+<h1>All posts</h1>
 
-<nav aria-label="Post page navigation">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link{% if not pagination.href.previous %} disabled{% endif %}" href="{{ pagination.href.previous or '#' }}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <!-- <span class="sr-only">Previous</span> -->
-      </a>
-    </li>
-    {% for pageEntry in pagination.pages %}
-    {% set paginationIsCurrentPage = page.url == pagination.hrefs[ loop.index0 ] %}
-    <li class="page-item{% if paginationIsCurrentPage %} active{% endif %}"><a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}" {% if paginationIsCurrentPage %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
-    {% endfor %}
-    <li class="page-item">
-      <a class="page-link{% if not pagination.href.next %} disabled{% endif %}" href="{{ pagination.href.next or '#' }}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <!-- <span class="sr-only">Next</span> -->
-      </a>
-    </li>
-  </ul>
-</nav>
 
-{% set postslist = posts %}
-{% include "postlistfull.njk" %}
+            {% set postslist = collections.posts | reverse %}
+
+            {% include "postlistfull.njk" %}

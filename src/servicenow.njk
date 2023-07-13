@@ -1,0 +1,23 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: ServiceNow
+  order: 4
+---
+
+<div class="flex-fill home-splash">
+    <div class="home-splash-content">
+        <h1>ServiceNow</h1>
+        <h2>ServiceNow is a powerful and flexible platform, damn it's good</h2>
+    </div>
+</div>
+
+<div class="container home-content">
+    <div class="row">
+        <div class="col-md-12">
+            {% set postslist = collections[ "ServiceNow" ]  | reverse %}
+
+            {% include "postlistfull.njk" %}
+        </div>
+    </div>
+</div>
