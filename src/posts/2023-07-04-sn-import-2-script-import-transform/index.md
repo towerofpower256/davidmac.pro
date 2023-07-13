@@ -10,7 +10,7 @@ tags:
 eleventyExcludeFromCollections: false
 ---
 
-# The problem
+## The problem
 Typically to import data into ServiceNow, there's a song and dance to make a spreadsheet and upload that into ServiceNow.
 
 But what if you already have the import table and transforms, and you want to import data using a script, scheduled job, or UI action?
@@ -20,7 +20,7 @@ But what if you already have the import table and transforms, and you want to im
 * Importing and transforming data that is already in ServiceNow.
 * Using a script to fetch data from a remote system and push it through an import & transform.
 
-# Solution - Do it yourself
+## Solution - Do it yourself
 Luckily, ServiceNow has scriptable API's where you can control the import process yourself.
 
 Data can be loaded into the import table either by loading from a data source, or you can populate it yourself, as long as it gets grouped under an Import Set.
@@ -34,9 +34,9 @@ It involves using the below ServiceNow classes:
 * **GlideImportLog** to capture logs and events for the import.
 * **GlideImportSetTransformer** to perform the import / run the transform maps.
 
-# Examples
+## Examples
 
-## Example - Just transform it
+### Example - Just transform it
 This example will just run the transform, nothing fancy.
 It shows all you need to kick-off a transform.
 
@@ -56,7 +56,7 @@ importTransformer.setImportSetID(importSetId); // Replace withthe import set sys
 importTransformer.transformAllMaps(); 
 ```
 
-## Example - Importing from a data source
+### Example - Importing from a data source
 This example will work when you have a data source and you want to 
 1. Load data from an existing data source
 1. Import the data
@@ -86,7 +86,7 @@ importTransformer.setSyncImport(true); // If true, script will wait for transfor
 importTransformer.transformAllMaps(grImportSet); // <-- The goods happen right here
 ```
 
-## Example - Importing from manually created data
+### Example - Importing from manually created data
 This example will work if you want to:
 1. Manually create the import set
 1. Manually populate the data in the import table under the import set
@@ -125,7 +125,7 @@ importTransformer.transformAllMaps();
 // Don't need to specify the GlideRecord of the Import Set because we've already done it using .setImportSetID()
 ```
 
-# GlideImportSetLoader
+## GlideImportSetLoader
 Use this class to load data from a data source into an import table.
 There isn't much documentation on how to use this class, so I'll share what I know.
 
@@ -143,7 +143,7 @@ var grImportSet = loader.getImportSetGr(grDataSource);
 loader.loadImportSetTable(grImportSet, grDataSource); // <-- The magic happens here
 ```
 
-# GlideImportLog usage
+## GlideImportLog usage
 Both of these scripts produce the same result, it doesn't make much difference.
 1. An import set run and logger is created.
 1. Log messages are added against the import set run.
@@ -175,6 +175,6 @@ importTransformer.setImportSetID(importSetId); // Replace withthe import set sys
 importTransformer.transformAllMaps(); 
 ```
 
-# Links
+## Links
 * SN Docs - GlideImportSetTransformer
   https://docs.servicenow.com/bundle/utah-api-reference/page/app-store/dev_portal/API_reference/GlideImportSetTransformer/concept/GlideImportSetTransformerAPI.htm
