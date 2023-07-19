@@ -86,6 +86,6 @@ It involves using the below ServiceNow classes:
 Learn more about this in this article: [Scripts to start imports](posts/2023-07-04-sn-import-2-script-import-transform/)
 
 ## Links
-* https://community.servicenow.com/thread/145203
+* https://www.servicenow.com/community/developer-forum/glideimportsettransformerworker-alternative-for-scoped-app/m-p/1525142
 * The Script Include "DataSourceLoader"
 * The Script Include "ScriptInclude.BillingRollup"
