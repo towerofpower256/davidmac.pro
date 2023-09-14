@@ -59,6 +59,8 @@ So emails send to the mailbox are being received by ServiceNow, and now you want
 
 This is a bit more complex, and I'll cover it in a separate post.
 
+[How to use your own mailbox with ServiceNow](/posts/2023-09-14-sn-email-accounts/)
+
 [![ServiceNow sending and receiving from a mailbox](diagrams-send-receive-mailbox-process.png)](diagrams-send-receive-mailbox-process.png)
 
 ## Troubleshooting
