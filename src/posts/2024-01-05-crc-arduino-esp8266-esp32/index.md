@@ -163,7 +163,7 @@ This example includes an initial value and an array of other values. The code wi
 // CRC F38C FAILED
 ```
 
-## Example - Struct with CRC inside
+### Example - Struct with CRC inside
 Sometimes the CRC checksum variable is a property within your object that you want to perform the CRC on.
 
 For example, a settings struct with all of the controller's saved settings might have a CRC checksum property at the end of it.
