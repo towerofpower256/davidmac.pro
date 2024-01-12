@@ -177,6 +177,15 @@ table th {
   padding-right: 1em;
 }
 
+.post-container table th,
+.post-container table td {
+  vertical-align: top;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: solid 1px grey;
+}
+
+
 pre,
 code {
   font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
