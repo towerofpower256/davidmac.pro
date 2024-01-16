@@ -59,6 +59,10 @@ p:last-child {
   max-width: 100%;
 }
 
+.post-content {
+  overflow-x: auto;
+}
+
 .post-content img {
   border: solid 1px black;
 }
