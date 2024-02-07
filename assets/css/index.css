@@ -67,6 +67,7 @@ p:last-child {
   border: solid 1px black;
 }
 
+  margin-bottom: 0.5em;
 .tmpl-post blockquote {
   background-color: #ececff;
   border-left: solid 4px #4b4bff;
