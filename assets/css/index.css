@@ -67,7 +67,11 @@ p:last-child {
   border: solid 1px black;
 }
 
+/* Padding between line items, all but the first <li> */
+.post-content li+li {
+  margin-top: 0.5em;
 }
+
 .tmpl-post blockquote {
   background-color: #ececff;
   border-left: solid 4px #4b4bff;
