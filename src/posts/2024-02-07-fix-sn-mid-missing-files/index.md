@@ -20,6 +20,8 @@ It turns out the MID server trued to update itself but a file security system ha
 
 This can also happen when something goes wrong with a manual upgrade. Not everyone gets it right, but once the damage has been done, it's done.
 
+[![Folder missing files meme](folder-missing-files-kid.png)](folder-missing-files-kid.png)
+
 ## Why you can't just reinstall
 Sure, you could just reinstall the MID server from scratch. It feels like the damage can't be recovered from, so why even try?
 
