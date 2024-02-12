@@ -33,7 +33,25 @@ However, you need to have some of the MID server's details before you can reinst
 
 It's very unlikely that most ServiceNow admins and Windows engineers will have this information on-hand.
 
-## How to recover
+## Try to run the upgrade again
+If the damage was caused by a failed upgrade, you can try to run the upgrade manually yourself. This is a great option if 
+* the cause of the issue was temporary, or 
+* if you need to manually run the program over and over again to allow it through a security system (e.g. Airlock).
+
+To manually run the upgrade, follow the instructions in this ServiceNow KB article: **How to continue a MID Server upgrade after it has crashed in the middle of the ServiceNow Platform Distribution Upgrade service leaving the MID Server down and service not running**
+https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0779816
+
+In a nutshell, open a terminal and run this. The **upgrade temp folder** is usually in the folder:
+```
+../agent/work/upgrade_temp/<really long number>;
+```
+
+* (Windows) `<temp folder>\upgrade-wrapper\bin\glide-dist-upgrade.bat start`
+* (Linux) go to the folder &lt;temp folder&gt;/upgrade-wrapper/bin/ and run `"sudo sudo ./glide-dist-upgrade.sh start"`
+
+If the upgrade runs and doesn't cause errors, try running the service again. If the MID server shows as "up" in ServiceNow, the MID server is fixed.
+
+## Recover using files from another MID server
 In a nutshell, what you'll want to do is to create a new MID server folder, and then copy over some key files from the existing MID server. This is enough to revive the existing MID server.
 
 1. Rename the **"agent"** folder to **"agent_old"**. You're going to need this folder later on.
@@ -78,3 +96,7 @@ If you lose this file, the MID server will keep trying to start the wrong Window
  https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0535040
 * How to manually restore or upgrade a MID Server after a failed auto-upgrade
  https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0713557
+* How to continue a MID Server upgrade after it has crashed in the middle of the ServiceNow Platform Distribution Upgrade service leaving the MID Server down and service not running
+ https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0779816
+* MID Server upgrade process - What actually happens when a MID Server upgrades itself?
+ https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0696937
