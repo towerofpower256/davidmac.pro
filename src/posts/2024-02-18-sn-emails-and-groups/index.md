@@ -1,6 +1,6 @@
 ---
 title: ServiceNow Quick Reference - How Emails are Sent to Groups
-description: A quick reference on how ServiceNow sends emails to groups and how different settings change how it works.
+description: A quick reference on how ServiceNow sends emails to groups, group members, managers, and group email addresses, and how different settings change how it works.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2024-02-18
@@ -10,18 +10,18 @@ eleventyExcludeFromCollections: false
 ---
 
 ## Group emails
-A colleague asked how to send notification emails to a group the group's email address so I did some testing to find out how it all works. Hopefully this helps others asking the same question.
+A colleague asked how to get ServiceNow to send notification emails to a group's members as well as the group's email address. So I did some testing to find out how it all works. Hopefully this helps others asking the same question.
 
 Group [sys_user_group] records have 3 fields (sometimes hidden) that we're interested in.
 * Group email
-* Include members
-* Exclude manager
+* Include members (hidden)
+* Exclude manager (hidden)
 
 <table>
     <thead>
         <tr>
-            <th>Group has group email</th>
-            <th>Manager is group member</th>
+            <th>Group has a group email</th>
+            <th>Manager is a group member</th>
             <th>Include members</th>
             <th>Exclude manager</th>
             <th></th>
