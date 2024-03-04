@@ -1,6 +1,6 @@
 ---
 title: How To Colour and Name Your Non-Production ServiceNow Instances
-description: Are you developing in production? Did you accidentally delete that production data, or load test data into your live instance? It's easy to forget which ServiceNow instance you are in. An easy solution is to uniquely theme and title your instances so admins and developers can clearly tell which instance they are in. Lets explore some options.
+description: Are you developing in production without realising? Did you accidentally delete that production data, or load test data into your live instance? It's easy to forget which ServiceNow instance you are in. An easy solution is to uniquely theme and title your instances so admins and developers can clearly tell which instance they are in. Lets explore some options.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2024-03-04
@@ -12,33 +12,39 @@ eleventyExcludeFromCollections: false
 ---
 
 ## Making instances look unique
-To make it easier to tell what instance you're in, a common practice is to add some theming to non-production instances to make them stand out. Good options include:
-* A custom or coloured favicon.
-* Obvious colouring across on the top banner (e.g. purple for TEST, red for DEV).
-* A custom banner logo.
+To make it easier to tell what instance you're in, a common practice is to add some theming to non-production instances to make them stand out. 
 
 The goal of these changes is to prevent accidents from occurring because changes were made in the wrong instances. You don't want to be that guy who uploaded test data into production, or send a bajillion test emails from production!
 
-## How does cloning preserve theming?
-A common issue with instance-specific theming is that these changes are lost during a clone from production.
+## Putting it all together
+Here's some examples of different unique instance changes to get you thinking.
 
-Let's have a look at how a clone handles theme configuration. When you request a new clone there's a checkbox called "Preserve Theme". But what does this actually do?
+### Sample 1
+UI16 with custom logo, favicon, product name, product description, UI16 header divider colour.
 
-[![Clone options with preserve theme](screenshot-clone-preserve-theme.png)](screenshot-clone-preserve-theme.png)
+[![UI16 sample](sample-ui16-dev.png)](sample-ui16-dev.png)
+[![UI16 sample](sample-ui16-test.png)](sample-ui16-test.png)
+[![UI16 sample](sample-ui16-prod.png)](sample-ui16-prod.png)
 
-To quote ServiceNow:
-*"Preserve theme: Preserves the theme and CSS elements on the target clone. This option is selected by default."*
+### Sample 2
+UI16 with custom logo, favicon, product name, product description, UI16 header divider colour, **but the user has selected the "Blues" theme**.
 
-What this means is that there are **Clone Data Preservers [clone_data_preserver]** with a true/false field called "Theme". These data preservers only take effect if the clone has "Preserver Theme" set to TRUE.
+[![UI16 sample](sample-ui16-dev-with-theme.png)](sample-ui16-dev-with-theme.png)
+[![UI16 sample](sample-ui16-test-with-theme.png)](sample-ui16-test-with-theme.png)
+[![UI16 sample](sample-ui16-prod-with-theme.png)](sample-ui16-prod-with-theme.png)
 
-Here's the out-of-the-box configuration of data preservers for themeing, preserving:
-* Application categories
-* The "My Company" record (the Company [core_company] record where "Primary" is TRUE)
-* Theming related System Properties [sys_properties], notably those that start with "css" and some other specific properties.
+### Sample 3
+Next Experience with logo, favicon, and product name.
 
-[![Clone Data preservers relating to themes](screenshot-clone-theme-preservers.png)](screenshot-clone-theme-preservers.png)
+[![Polaris sample](sample-polaris-dev.png)](sample-polaris-dev.png)
+[![Polaris sample](sample-polaris-test.png)](sample-polaris-test.png)
+[![Polaris sample](sample-polaris-prod.png)](sample-polaris-prod.png)
 
-This tells us how to make our changes survive clones. The "My Company" record and some specific system properties.
+### Sample 4
+Next Experience with banner announcement, logo, favicon, and product name.
+
+[![Polaris sample](sample-polaris-test-with-announcement.png)](sample-polaris-test-with-announcement.png)
+[![Polaris sample](sample-polaris-dev-with-announcement.png)](sample-polaris-dev-with-announcement.png)
 
 ## Instance favicon
 You can set a unique favicon / page icon for each instance which helps users identify the instance just be glancing at the browser tab.
@@ -218,37 +224,26 @@ Here's an example of a banner announcement for a DEV environment and the Banner 
 
 [![Next Experience banner announcement](next-experience-banner-announcement-sample.png)](next-experience-banner-announcement-sample.png)
 
-## Putting it all together
-You can combine some or all of the above to achieve some unique results.
+## How does cloning preserve theming?
+A common issue with instance-specific theming is that these changes are lost during a clone from production.
 
-Here's some examples to get you thinking.
+Let's have a look at how a clone handles theme configuration. When you request a new clone there's a checkbox called "Preserve Theme". But what does this actually do?
 
-### Sample 1
-UI16 with custom logo, favicon, product name, product description, UI16 header divider colour.
+[![Clone options with preserve theme](screenshot-clone-preserve-theme.png)](screenshot-clone-preserve-theme.png)
 
-[![UI16 sample](sample-ui16-dev.png)](sample-ui16-dev.png)
-[![UI16 sample](sample-ui16-test.png)](sample-ui16-test.png)
-[![UI16 sample](sample-ui16-prod.png)](sample-ui16-prod.png)
+To quote ServiceNow:
+*"Preserve theme: Preserves the theme and CSS elements on the target clone. This option is selected by default."*
 
-### Sample 2
-UI16 with custom logo, favicon, product name, product description, UI16 header divider colour, **but the user has selected the "Blues" theme**.
+What this means is that there are **Clone Data Preservers [clone_data_preserver]** with a true/false field called "Theme". These data preservers only take effect if the clone has "Preserver Theme" set to TRUE.
 
-[![UI16 sample](sample-ui16-dev-with-theme.png)](sample-ui16-dev-with-theme.png)
-[![UI16 sample](sample-ui16-test-with-theme.png)](sample-ui16-test-with-theme.png)
-[![UI16 sample](sample-ui16-prod-with-theme.png)](sample-ui16-prod-with-theme.png)
+Here's the out-of-the-box configuration of data preservers for themeing, preserving:
+* Application categories
+* The "My Company" record (the Company [core_company] record where "Primary" is TRUE)
+* Theming related System Properties [sys_properties], notably those that start with "css" and some other specific properties.
 
-### Sample 3
-Next Experience with logo, favicon, and product name.
+[![Clone Data preservers relating to themes](screenshot-clone-theme-preservers.png)](screenshot-clone-theme-preservers.png)
 
-[![Polaris sample](sample-polaris-dev.png)](sample-polaris-dev.png)
-[![Polaris sample](sample-polaris-test.png)](sample-polaris-test.png)
-[![Polaris sample](sample-polaris-prod.png)](sample-polaris-prod.png)
-
-### Sample 4
-Next Experience with banner announcement, logo, favicon, and product name.
-
-[![Polaris sample](sample-polaris-test-with-announcement.png)](sample-polaris-test-with-announcement.png)
-[![Polaris sample](sample-polaris-dev-with-announcement.png)](sample-polaris-dev-with-announcement.png)
+This tells us how to make our changes survive clones. The "My Company" record and some specific system properties.
 
 ## Links
 * SN Pro Tips - Customizing UI16 though CSS and System Properties
