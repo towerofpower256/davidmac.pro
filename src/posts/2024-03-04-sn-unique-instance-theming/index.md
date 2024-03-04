@@ -16,7 +16,7 @@ To make it easier to tell what instance you're in, a common practice is to add s
 
 The goal of these changes is to prevent accidents from occurring because changes were made in the wrong instances. You don't want to be that guy who uploaded test data into production, or send a bajillion test emails from production!
 
-## Putting it all together
+## Theming examples
 Here's some examples of different unique instance changes to get you thinking.
 
 ### Sample 1
