@@ -138,6 +138,10 @@ Here's an example in the Next Experience with a slight change to denote which in
 
 [![Next experience banner with a custom logo, hovering to show the product description](banner-logo-polaris-custom-hover.png)](banner-logo-polaris-custom-hover.png)
 
+The custom logo also appears on the Next Experience login page.
+
+[![Next Experience login page with custom product logo](login-product-image.png)](login-product-image.png)
+
 And in UI16.
 
 [![UI16 with a custom logo](banner-logo-ui16-custom.png)](banner-logo-ui16-custom.png)
