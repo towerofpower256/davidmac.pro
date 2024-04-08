@@ -76,7 +76,7 @@ First, add the image to ServiceNow.
 Then, set up ServiceNow to use the new favicon image.
 1. Open the instance you want to change the favicon for.
 1. Navigate to "**System Properties &gt; System**".
-1. Change the field "**Icon image displayed in the bookmarks and browser address bar**" (system property "glide.product.icon"), enter the file name of the uploaded image.
+1. Change the field "**Icon image displayed in the bookmarks and browser address bar**" [glide.product.icon], enter the file name of the uploaded image.
 1. Click "**Save**".
 
 Fun fact, "**glide.product.icon**" is one of the system properties preserved by the clone because it is considered part of the "theme". 
@@ -107,16 +107,20 @@ Here's an example of instance-specific "**glide.product.name**" of "**ServiceNow
 
 [![Page title custom](page-title-custom.png)](page-title-custom.png)
 
-## Banner logo
-You can give instances their own unique banner logo to tell them apart. This method is super easy to do.
+## Product logo
+You can give instances their own unique logo to tell them apart. This method is super easy to do.
 
-> **Note:** Custom product logos are not visible on the Service Portal.
+This logo is used:
+* In the top-right of the banner (incl. UI16).
+* On the login page for the Next Experience.
 
-Here's a diagram from ServiceNow docs showing the different components of the banner logo.
+> **Note:** Custom product banner logos will not affect the Service Portal.
 
-[![Diagram of what settings go into the banner logo](diagram-banner-logo-settings.png)](diagram-banner-logo-settings.png)
+For more information on changing the banner logo and the different ways to do it, check out SN Docs.
+* [Create a company profile](https://docs.servicenow.com/bundle/washingtondc-platform-user-interface/page/administer/navigation-and-ui/task/t_CreateACompanyProfile.html)
+* [Customize the banner logo in Core UI](https://docs.servicenow.com/bundle/washingtondc-platform-user-interface/page/administer/navigation-and-ui/task/t_CustomizeTheLogoInSysProps.html)
 
-**Out of the box**
+### How it looks
 
 Here's how it looks out of the box in Polaris / Next Experience UI.
 
@@ -146,6 +150,83 @@ And in UI16.
 
 [![UI16 with a custom logo](banner-logo-ui16-custom.png)](banner-logo-ui16-custom.png)
 
+### How ServiceNow decides what logo image to use
+The logo (a.k.a. product image) is set by the following, in order.
+1. The **UI16 Banner Image** image field on the Company that your User [sys_user] is set to. Does not affect login page. **Not clone safe**.
+1. The **UI16 Banner Image** image field on the **System Properties > My Company** record / the Company [core_company] where "Primary" is TRUE. **Not clone safe**.
+1. System Property **glide.product.image.light**. Should be an image name, not an attachment sys_id.
+1. System Property **glide.product.image**. Should be an image name, not an attachment sys_id.
+
+The logo on the login page will use the same order.
+
+Note that **glide.product.image.light** overrides any other logo image configuration for the Platform UI or the login page.
+
+Changing the "UI16 Banner Image" field on the "My Company" record **will update the glide.product.image.light property**. These changes will be lost during a clone over the instance.
+
+### How to change the product image
+> Do not use the **System Configuration > Basic Configuration** page to upload a new logo. This will attach the image to the system property which will be lost during a clone.
+
+Here's how to upload a new logo image and update ServiceNow to use that image as a logo.
+
+First, add the image to ServiceNow.
+1. **In production** navigate to "**System UI &gt; Images > Images**" or the table Images [db_image].
+1. Click on "**New**".
+1. Enter a "**Name**" for your image. Valid names must end in .gif, .png, .jpg, .ico, or .bmp. I'd recommend "favicon_(instance name)" e.g. "favicon_dev.png".
+1. Click the "**Click to add**" link in the Image field, then select and upload the image.
+1. Click "**Update**" to save the new image.
+1. Repeat the above steps for as many unique favicon images you need (e.g. 1 for DEV, 1 for TEST).
+1. Get the new Image [db_image] to the other instances either by doing a clone, or repeating the above steps in the other instances.
+
+> **Why did we add the images in production?**
+> While the system property that specifies which image to use will survive the clone, the image itself will not. The Image [db_image] table has no clone data preserves. This means images for all of the instances must be in production so that they come down in a clone.
+
+Then update the system properties to use your new image.
+1. Navigate to the list of system properties by entering **sys_properties.list** in the navigator search field, then press ENTER.
+1. Search for the system property **glide.product.image** and open it. (If it's missing, create a new one with the same name).
+1. Set "Value" to the name of the Image [db_image] you created earlier.
+1. Save the changes.
+1. Repeat the above steps for **glide.product.image.light**.
+
+Here's some examples with placeholder images.
+
+Here's how it looks with **glide.product.image.light** configured. Note that this property is confiugured by default.
+
+[![glide.product.image.light configured](properties-product-image.png)](properties-product-image.png)
+
+[![Example banner logo with light](example-login-logo-with-light.png)](example-login-logo-with-light.png)
+
+[![Example login logo with light](example-banner-logo-with-light.png)](example-login-logo-with-light.png)
+
+Here's how it looks without **glide.product.image.light** configured, but still a logo on the "My Company" record.
+
+[![glide.product.image.light not configured](properties-product-image-without-light.png)](properties-product-image-without-light.png)
+
+[![Login page without .light image](example-login-logo-without-light.png)](example-login-logo-without-light.png)
+
+[![Banner without .light image](example-banner-logo-without-light.png)](example-banner-logo-without-light.png)
+
+### Warning: Image attachments on Company records
+Unique banner images on Company [core_company] **will be lost and replaced during a clone**, even though the record itself is preserved.
+
+I don't recommend setting the logo for non-production instances using the Company [core_company] method.
+
+### Warning: Image attachments on system properties
+
+**Do not attach images to system properties.** Images attached to Sytem Property [sys_properties] records **are not** preserved during a clone. This is a problem for "uploaded image" system properties because the system property and it's value will be preserved, but the value will be a sys_id of the image attachment which gets deleted by the clone. 
+
+This will cause your logo image to be missing after a clone.
+
+[![Banner page missing logo](banner-missing-logo.png)](banner-missing-logo.png)
+
+*Banner with a missing logo.*
+
+[![Login page missing logo](login-missing-logo.png)](login-missing-logo.png)
+
+*Next Experience login page missing logo.*
+
+## Product description text
+[![Next Experience logo, hover to get the product description](banner-logo-polaris-hover.png)](banner-logo-polaris-hover.png)
+
 To change the "Product Description".
 1. Navigate to "**System Properties &gt; Basic Configuration**".
 1. Look for and update the "**Page header caption**" [glide.product.description] field.
@@ -154,20 +235,6 @@ To change the "Product Description".
 [![Config page for configuring the product description](screenshot-system-config-logo.png)](screenshot-system-config-logo.png)
 
 > As of the Utah release in the Next Experience UI, ServiceNow recommends not changing the "Product description" [glide.product.description] and instead using Banner Announcements with "Non-dismissible" enabled so it's always there.
-
-To change the instance logo on either UI16 or the Next Experience:
-1. In the instance you want to change the logo, navigate to "**System Properties &gt; My Company**" (or open the Company [core_company] record where "Primary" is TRUE).
-1. Next to "**UI16 Banner Image**", click on "[Update]" and upload a new logo to use. **I'd recommend saving the existing icon first, just in case you need to revert back**.
-1. Click on "**Update**" to save the changes.
-1. Reload the page to see your new logo.
-
-[![My Company record to change the logo](screenshot-my-company-change-logo.png)](screenshot-my-company-change-logo.png)
-
-**Note:** If the "UI16 Banner Image" field is EMPTY on your "My Company" record, ServiceNow will use the image used in "System Properties &gt; Basic Configuration &gt; Banner Image" [glide.product.image] by default. This is worth noting if you have users in a different company e.g. Customer Service Management or Domain Separation.
-
-For more information on changing the banner logo and the different ways to do it, check out SN Docs.
-* [Create a company profile](https://docs.servicenow.com/bundle/washingtondc-platform-user-interface/page/administer/navigation-and-ui/task/t_CreateACompanyProfile.html)
-* [Customize the banner logo in Core UI](https://docs.servicenow.com/bundle/washingtondc-platform-user-interface/page/administer/navigation-and-ui/task/t_CustomizeTheLogoInSysProps.html)
 
 ## Banner theming
 A great option for visibly identifying each instance is with a visually striking coloured banner.
