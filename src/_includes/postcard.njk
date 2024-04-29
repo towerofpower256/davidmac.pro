@@ -1,0 +1,38 @@
+<div classname="post-card">
+    {% if postCardHideCard == true %}
+    <div>
+    {% else %}
+    <div class="card">
+    {% endif %}
+        <div class="{% if postCardHideCard != true %}card-body{% endif %} text-start">
+            {% if post %}
+                <a href="{{ post.url }}">
+                    <img src="{{ post.url }}{{ post.data.imageThumbnail }}" class="post-card-image " alt="Thumbnail">
+                </a>
+                <h5 class="post-card-title">
+                    <a href="{{ post.url }}">{{ post.data.title }}</a>
+                </h5>
+                <div class="post-card-meta">
+                    {% if postCardHideTags != true %}
+                        <div class="post-card-tags">
+                            {% for tag in post.data.tags %}
+                                {%- if collections.tagList.indexOf(tag) != -1 -%}
+                                    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                                    <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+                                {%- endif -%}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if postCardHidePublished != true %}
+                        <div class="post-card-published text-muted">Published {{ post.date | readableDate }}</div>
+                    {% endif %}
+                </div>
+                {% if postCardHideDescription != true %}
+                    <div class="post-card-text">
+                        {{ post.data.description }}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

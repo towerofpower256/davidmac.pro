@@ -10,6 +10,7 @@ tags:
 - Opinion
 - Solution
 eleventyExcludeFromCollections: false
+series: sn-approval
 ---
 
 ServiceNow is great for approval processes. It's powerful, flexible, and easy to track who approved what.

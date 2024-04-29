@@ -37,6 +37,7 @@
         {% endif %}
         {% for post in postslist %}
         <li class="list-group-item">
+            {#
             <!-- <div class="postlistfull-image" style="background-image: url({{ post.url }}{{ post.data.imageThumbnail }})"></div> -->
             <a href="{{ post.url }}">
                 <img src="{{ post.url }}{{ post.data.imageThumbnail }}" class="postlistfull-image" alt="Thumbnail">
@@ -58,6 +59,10 @@
             <div class="postlistfull-text">
                 {{ post.data.description }}
             </div>
+            #}
+
+            {% set postCardHideCard = true %}
+            {% include "postcard.njk"%}
         </li>
         {% endfor %}
         {% if postslistShowLinkToAll == true %}

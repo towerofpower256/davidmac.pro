@@ -9,6 +9,7 @@ tags:
 - Opinion
 - Solution
 eleventyExcludeFromCollections: false
+series: sn-approval
 ---
 
 ServiceNow is great for approval processes. It's powerful, flexible, and easy to track who approved what. Enabling users to quickly action approvals extends into the ServiceNow service portal, including a highly visible count of approvals awaiting the user, and summarising approvals for an at-a-glance review.
