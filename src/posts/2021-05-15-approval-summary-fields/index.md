@@ -8,6 +8,7 @@ tags:
 - ServiceNow
 - Coding
 eleventyExcludeFromCollections: false
+series: sn-approval
 ---
 
 ## The problem

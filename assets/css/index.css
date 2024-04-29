@@ -49,22 +49,27 @@ p:last-child {
 }
 
 .tmpl-post img {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  
 }
 
 .tmpl-post video {
-  max-width: 100%;
+  
 }
 
 .post-content {
   overflow-x: auto;
 }
 
+.post-content video {
+  max-width: 100%;
+}
+
 .post-content img {
   border: solid 1px black;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 /* Padding between line items, all but the first <li> */
@@ -95,6 +100,7 @@ p:last-child {
 }
 .post-featuredimage img {
   max-height: 300px;
+  max-width: 100%;
 }
 .post-nav {
   
@@ -505,4 +511,10 @@ footer.site-footer {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Post card styling */
+.post-card-image {
+  width: 200px;
+  margin-bottom: 10px;
 }
