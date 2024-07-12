@@ -17,6 +17,10 @@ Group [sys_user_group] records have 3 fields (sometimes hidden) that we're inter
 * Include members (hidden)
 * Exclude manager (hidden)
 
+[![Group fields](screenshot-group-fields.png)](screenshot-group-fields.png)
+
+Here's a reference for how notifications are sent to groups.
+
 <table>
     <thead>
         <tr>
