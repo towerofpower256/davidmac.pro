@@ -8,7 +8,7 @@ tags:
 - ServiceNow
 - Solution
 - Opinion
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 ---
 
 ## Making instances look unique
