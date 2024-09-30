@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Non-Production Instance Theming Part 3 - Logo
+description: Are you developing in production without realising? Did you accidentally delete that production data, or load test data into your live instance? It's easy to forget which ServiceNow instance you are in. Giving all of your ServiceNow instances their own logo will help remind you where you are and if it's safe to make changes.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2024-03-04
@@ -10,6 +10,11 @@ tags:
 eleventyExcludeFromCollections: false
 series: sn-theming
 ---
+
+## Foreward
+> The thought process for instance-specific theming is:
+> * Create the **content** in **production**. They'll get cloned down.
+> * Create the **configuration** in the lower other instances to use the **content** that came from **production**.
 
 ## Product logo
 You can give instances their own unique logo to tell them apart. This method is super easy to do.

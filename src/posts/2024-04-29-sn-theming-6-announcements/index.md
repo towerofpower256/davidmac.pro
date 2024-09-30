@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Non-Production Instance Theming Part 6 - Using Announcements
+description: Are you developing in production without realising? Did you accidentally delete that production data, or load test data into your live instance? It's easy to forget which ServiceNow instance you are in. Adding an announcement to each instance can be a constant reminder of which instance you are in.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2024-03-04
