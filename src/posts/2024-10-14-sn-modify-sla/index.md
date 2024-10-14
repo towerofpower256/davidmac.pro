@@ -19,7 +19,7 @@ There's a few reasons why you might want to modify an SLA's definition.
 
 Either way, they're not working how they should and you want to change it.
 
-> The rule of thumb is **do not modify SLA definitions when there are active SLAs for it. Ever.**.
+> The rule of thumb is **do not modify SLA definitions when there are active SLAs for it. Ever.**
 
 ServiceNow themselves say "don't do it" here in these support KBs.
 
@@ -60,11 +60,11 @@ If you did this straight into production, you don't need to worry about updating
 ## What else?
 There are some other things that you should do if you're updating SLA definitions.
 
-1. Communicate the change with affected users and stakeholders. Let them know that it's changing. E.g. modified durations, or modified conditions.
+1. **Communicate the change with affected users and stakeholders.** Let them know that it's changing. E.g. modified durations, or modified conditions.
 
-2. Again, communicate the change with affected users. They may have reports or filters that target specific SLAs which won't be accurate after a new SLA is introduced and the old one is decommissioned.
+2. Again, **communicate the change with affected users.** They may have reports or filters that target specific SLAs which won't be accurate after a new SLA is introduced and the old one is decommissioned.
 
-3. Decide what to do about old SLAs on old tickets. How long will you support the old SLA in measurements and reporting? What if an old incident has the old SLA but takes 3 months to close, will you still support it? It's OK to say 'no', but make that decision and write that down somewhere.
+3. **Decide what to do about old SLAs on old tickets.** How long will you support the old SLA in measurements and reporting? What if an old incident has the old SLA but takes 3 months to close, will you still support it? It's OK to say 'no', but make that decision and write that down somewhere.
 
 ## What if I change it anyway?
 [![So you forced the change anyway](meme-captain-america-so-you-changed-it-anyway.jpg)](meme-captain-america-so-you-changed-it-anyway.jpg)
@@ -74,7 +74,7 @@ Let's talk about what happens if you do , and why you shouldn't have done that.
 ### Quirk: calculations and onDisplay
 The "Elapsed time" and "Time left" fields on an SLA instance are calculated when the incident's form is opened. This is done by an onDisplay business rule "Calc SLAs on Display".
 
-This means that those fields won't update until you look at the task it's attached to.
+**This means that those fields won't update until you look at the task it's attached to.** Like Schroedinger and his cat, it won't change until it's observed. 
 
 If you have any reports or dashboards that sort tasks and SLAs on their urgency, it's best to report or filter on the "Breach time" field instead of "Time left" fields.
 
