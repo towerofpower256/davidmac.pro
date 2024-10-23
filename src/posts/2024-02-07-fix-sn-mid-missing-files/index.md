@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: false
 ## The problem
 I ran into an interesting issue where a ServiceNow MID server was missing almost all of its files. Especially those in the **./agent/bin/** folder, they were all gone.
 
-It turns out the MID server trued to update itself but a file security system had prevented parts of the MID server self-updater from running. This caused:
+It turns out the MID server tried to update itself but a file security system had prevented parts of the MID server self-updater from running. This caused:
 1. The MID server to delete some of its files to get ready for the upgrade.
 1. The upgrader failed to run or failed to copy over the new files.
 1. The MID server was missing files and couldn't start anymore.
