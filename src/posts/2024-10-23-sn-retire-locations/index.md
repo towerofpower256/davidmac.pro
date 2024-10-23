@@ -36,7 +36,8 @@ What does a **'retired location'** mean? Spending some time to think about some 
 * What sets a location is 'retired'? Is it a ServiceNow administrator doing data cleanup? Is it data coming from another system that decides if a location is retired or not? 
 
 ## Method 1 - Add "Active" field
-Make a new field on the **Location** [cmn_location] table called **Active** [u_active] with the **type** of **True/False**. Set the **default value** to **true**.
+Make a new field on the **Location** [cmn_location] table called **Active** [u_active] with the **type** of **True/False**. 
+Set the **default value** to **true** so all existing locations are active by default.
 
 Now you can flag retired locations with "Active = FALSE" and any existing locations will remain active.
 
@@ -45,11 +46,11 @@ Now you can flag retired locations with "Active = FALSE" and any existing locati
 ### Bonus - Visible style for inactive locations
 An optional customization to really make it obvious that a location is inactive is to create a **Field style**.
 
-Create a new Style [sys_ui_style] by navigating to **System UI &gt; Field Styles".
+Create a new Style [sys_ui_style] by navigating to **System UI &gt; Field Styles**.
 **Table:** Location [cmn_location]
 **Field name:** Name
 **Value:** `javascript:if (current.u_active == true) {true;} else {false;}`
-**Style:** background-color: red;
+**Style:** background-color: tomato;
 
 Feel free to change the `background-color` in the style to any colour you'd like. I like "tomato" because it's red-ish and hard to ignore, but isn't full red which burns into your eyes.
 
@@ -73,31 +74,29 @@ This involves updating:
 
 [![Screenshot of variable filter](screenshot-filter-variable.png)](screenshot-filter-variable.png)
 
-For reports, users will need to be aware of the "Active" field and filter out inactive locations themselves. Otherwise, their reports will include both active and inactive locations.
+Users that work with reports will need to be aware of the "Active" field so they know to filter out inactive locations themselves. Otherwise, their reports will include both active and inactive locations.
 
 **The good**
 * Users can still see all locations (active or inactive) in their own lists and reports.
 * Inactive locations can't be used in processes that shouldn't be using them (requests, incidents, assets, etc).
-* Added flexibility of allowing the use of inactive locations where needed
+* Added flexibility of allowing the use of inactive locations where needed.
 
 **The bad**
 * Tedious to implement, requires updating of almost all reference fields and variables.
 * Can be difficult to update existing complex conditions to filter out inactive locations.
-* All of the modified location fields means many skipped updates during an instance upgrade.
+* All of the modified location fields may cause lots of skipped updates during an instance upgrade.
 
 ### Method 1.2 - Hiding inactive locations using a query business rule
-Now that you have an "Active" field, you can use a **query business rule* to hide any inactive locations from everyone except your administrators.
+Now that you have an "Active" field, you can use a **query business rule** to hide any inactive locations from everyone except those users who should see them (e.g. admins).
 
-In a nutshell, this business rule will sneaky add a condition to any query to the Location [cmn_location] table to exclude any locations where Active is not TRUE. Unless the user has one of the roles we want to be able to see inactive locations, then it won't add in that condition.
-
-However, you only want to apply this filter if the user is querying something, you don't want to apply the rule if the user is looking directly at a record. That way, it's hidden from searches and lookups, but you can still click-through a reference field or use existing links to get to the inactive locations.
+In a nutshell, this business rule will sneakily add a condition any time the Location [cmn_location] table is used, and excludes any locations where Active is not TRUE. Unless the user has one of the roles we want to be able to see inactive locations, in which case it won't add in that condition.
 
 1. Create a new Business Rule. 
-1. Call it something like "Location query" or "Location query hide inactive".
+1. Call it something like **"Location query"** or **"Location query hide inactive"**.
 1. Set **Table** to "Location [cmn_location]"
 1. Set **Advanced** to TRUE
-1. Under the "Advanced" section, set **Condition** to `gs.isInteractive() && !gs.hasRole('user_admin')`. This is what prevents the restriction being applied when we don't want it to.
-1. Set **Script** to the below. Tweak as needed, then **Save**.
+1. Under the **Advanced** section, set **Condition** to `gs.isInteractive() && !gs.hasRole('user_admin')`. This is what prevents the restriction being applied when we don't want it to.
+1. Set **Script** to the below. Tweak as needed, then click **Save**.
 ```js
 (function executeRule(current, previous /*null when async*/) {
 
@@ -126,7 +125,7 @@ This applies to filters as well. Non-admins will not be able to select inactive 
 * Queries on other tables that dot-walk to location data still work. This only affects queries against the **Location [cmn_location]** table directly. This means that users can still report and filter data depending on the related location. E.g. "I'm doing an audit on assets using retired locations, list all hardware assets where **Location.Active** is FALSE".
 
 **The bad**
-* Hides inactive locations without exception.
+* Bluntly hides inactive locations without exception. Difficult to handle exceptions where users must see inactive locations for a specific use-case.
 * Can't use inactive locations in catalog items. Normally this is good, but there's always a handful of cat items that need to use inactive locations.
 * Hides inactive locations from record pickers when making a query.
 * May interfere with data imports that don't have the 'required' role. If the data import user can't see existing data that is inactive, it may create duplicates because it thinks the location doesn't exist yet.
