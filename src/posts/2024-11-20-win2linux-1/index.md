@@ -33,7 +33,17 @@ A lot of people recommend [Linux Mint](https://linuxmint.com/) as the Linux dist
 
 I'm going to install it on a separate hard drive and keep my Windows hard drive plugged in if I ever need to switch.
 
-(diagram)
+Partition layout for the Linux drive.
+
+[![Linux partition layout](partlayout-1.png)](partlayout-1.png)
+
+Partition layout for the Windows drive.
+
+[![Windows partition layout](partlayout-2.png)](partlayout-2.png)
+
+Partition layout for the "data" drive (everything else goes in here).
+
+[![Data partition layout](partlayout-3.png)](partlayout-3.png)
 
 ## Planning for changes
 I don't want to dive into Linux without thinking and get burnt out in a week. Let's think about what I use Windows for, and what's available in Linux that's similar.
