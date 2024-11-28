@@ -1,6 +1,6 @@
 ---
 title: "Dave vs Linux #2 - Windows System Hotkeys in Linux"
-description: I'm 2 weeks into switching from Windows 10 to Linux Mint, and I'm feeling that some system hotkeys are slightly different. I still use Windows computers for work and I don't want to change the way thae I work by using a new set of keyboard shortcuts. Here are some notable differences I found and what I did about it.
+description: I'm 2 weeks into switching from Windows 10 to Linux Mint, and I'm feeling that some system hotkeys are slightly different. I still use Windows computers for work and I don't want to change my ways of working by using a new set of keyboard shortcuts. Here are some notable differences I found and what I did about it.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2024-11-28
