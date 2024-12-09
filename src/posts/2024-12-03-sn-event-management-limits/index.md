@@ -13,6 +13,7 @@ eleventyExcludeFromCollections: false
 * Event retention: 7 days of events are stored
 * Event processing throughput: 3k-10k events processed a sec
 * Event storage size: instance database size limit of 4 TB
+* MID Servers for Event Management have recommended minimum specs
 
 ## What stuff should be sent to ServiceNow Event Management? 
 This article written by the ServiceNow employee "ricocenteno" says: 
