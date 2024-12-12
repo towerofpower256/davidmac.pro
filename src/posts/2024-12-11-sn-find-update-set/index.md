@@ -15,15 +15,15 @@ An **Update set** is made of **Customer updates** which is the snapshots of reco
 [![Update set form with updates](update-set-with-updates.png)](update-set-with-updates.png)
 
 To search for changes to a record: 
-1. Copy the sys_id of the record you want to find update sets for (except for changes to a field [sys_dictionary], see below). 
+1. Copy the sys_id of the record you want to find update sets for (except for changes to a field [sys_dictionary] or field choices [sys_choice], see below). 
 1. Open a list of "Customer updates" [sys_update_xml] by typing "sys_update_xml.list" into the navigator search then pressing ENTER. 
 1. Apply a filter to search for changes. 
 
-If it's **not** for a field on a table, search "**Name ENDS WITH (sys_id of your record)**".
+If it's **not** for a field on a table or choice list, search "**Name ENDS WITH (sys_id of your record)**".
 
 [![Update search by sys_id](update-search-record.png)](update-search-record.png)
 
-If It's for a **field** on a table [sys_dictionary], search "**Name ENDS WITH (field name)**".
+If It's for a **field** on a table [sys_dictionary] or a **field choice** [sys_choice], search "**Name ENDS WITH (field name)**".
 
 [![Update search by field name](update-search-field.png)](update-search-field.png)
 
