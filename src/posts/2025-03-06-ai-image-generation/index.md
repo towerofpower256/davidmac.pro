@@ -3,7 +3,7 @@ title: "DIY Image Generator AI Using Stable-Diffusion and Automatic1111"
 description: Let's host our own GenAI to generate images and unlock the creative side of your own computer. Turns out it's a lot easier than I thought it would be.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
-date: 2025-02-25
+date: 2025-03-06
 tags:
 - AI
 - StableDiffusion
