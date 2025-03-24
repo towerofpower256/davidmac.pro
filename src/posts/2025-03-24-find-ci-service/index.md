@@ -10,8 +10,14 @@ eleventyExcludeFromCollections: false
 ---
 
 ## The CI Dependency View 
-From the Dependency View, you can click on a CI in the graph and see the services it supports by: 
+From the Dependency View can show related services in the "Details" section at the bottom of the page.
 
+1. Open a CI.
+1. Click on the "Dependency Views" button in top-right of the relationship formatter.
+
+[![Dependency Views button on the Relationship Formatter](relationship-formatter-dependency-button.png)](relationship-formatter-dependency-button.png)
+
+Then you can view related services by:
 1. Clicking on "Details". 
 1. Clicking on "Related Services". 
 
@@ -39,7 +45,7 @@ The table "Service Configuration Item Associations" [svc_ci_assoc] is a regularl
 
 [![cmdb_ci_assoc](cmdb_ci_assoc.png)](cmdb_ci_assoc.png)
 
-So what makes records in this table? 
+So what kinds of services will make these links? 
 
 * Mapped services? **Yes** 
 * Tag-based services? **Yes** 
@@ -57,20 +63,12 @@ The function `servicesAffectedByCI` gets services by:
 * Getting services by relationship by running `SNC.CMDBUtil.getRelatedServices(ci, maxDepth, maxSize)` 
 * Getting services by mapped services by running `SNC.BusinessServiceManager().getServicesAssociatedWithCi(ci, useSvcCiAssoc)` 
 
-It looks like it's driven by the table: 
-
-`svc_ci_assoc`
-
-This table is apparently an m2m table linking CIs to the services that they support. 
-
-However, the Java class `SNC.CMDBUtil.getRelatedServicesV2(id, maxDepth (10), maxSize (1,000) )` **will find services for a CI that were related manually**, in improvement over just using the [svc_ci_assoc] table. 
-
-Here's an example using the script to get services related to a CI. 
+Here's an example script using `servicesAffectedByCI` to find all of the services that a CI is related to.
 
 ```js 
 var id = "3a70f789c0a8ce010091b0ea635b982a"; 
 
-var services = j2js(SNC.CMDBUtil.getRelatedServices(id, 10, 1000)); 
+var services = new global.CIUtils().servicesAffectedByCI(id); 
 
 for (var i=0; i < services.length; i++) { 
     var serviceID = services[i]; 
@@ -79,12 +77,19 @@ for (var i=0; i < services.length; i++) {
     gs.print(""+(grS.getDisplayValue() || "(empty)")+" ("+serviceID+")"); 
 } 
 
-// *** Script: SAP Materials Management (26e44e8a0a0a0bb40095ff953f9ee520) 
-// *** Script: SAP Controlling (26e46e5b0a0a0bb4005d1146846c429c) 
-// *** Script: SAP Sales and Distribution (26e494480a0a0bb400ad175538708ad9) 
-``` 
+// *** Script: SAP Materials Management (26e44e8a0a0a0bb40095ff953f9ee520)
+// *** Script: SAP Controlling (26e46e5b0a0a0bb4005d1146846c429c)
+// *** Script: SAP Sales and Distribution (26e494480a0a0bb400ad175538708ad9)
+// *** Script: SAP Enterprise Services (26da329f0a0a0bb400f69d8159bc753d)
+// *** Script: SAP Human Resources (26e51a2f0a0a0bb4008628d2254c42db)
+// *** Script: SAP Financial Accounting (26e426be0a0a0bb40046890d90059eaa)
+// *** Script: SAP Plant Maintenance (26ee44500a0a0bb4005561915af6d450)
+// *** Script: SAP Labor Distribution (26ed9ad90a0a0bb40035d0e9d2d6f0a2)
+// *** Script: SAP Payroll (26e540d80a0a0bb400660482030d04d8)
+```
 
-> **Dave's thoughts:** In the future, I'm going to try using this to automatically populate the "Impacted Services/CIs" related list on incidents. Watch this space! 
+> **Dave's thoughts:** This is cool and very effective, but pro-code level of difficulty. 
+> In the future, I'm going to try using this to automatically populate the "Impacted Services/CIs" related list on incidents. Watch this space! 
 
 
 ## Links 
