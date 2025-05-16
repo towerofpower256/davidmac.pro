@@ -38,7 +38,7 @@ Approvals can be rejected by right-clicking on them and clicking on "Reject". Do
 
 [![Rejecting an approval from a list](screenshot-core-ui-approval-list.png)](screenshot-core-ui-approval-list.png)
 
-The easiest solution to this is to **disable the UI action**. 
+The easiest solution to this is to **disable the UI action**. This will prevent users from rejecting approvals from a list at all. Let's be honest, it's only used by system admins performing testing or maintenance, and not used by real approvers. 
 
 ### Service Portal 
 Out of the box, approvers can reject approval requests without the need to give a reason. 
