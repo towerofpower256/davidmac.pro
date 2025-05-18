@@ -1,6 +1,6 @@
 ---
 title: "Better SN Approvals #5 - Mandatory Reject Reason"
-description: Getting your approval request rejected without any reason feels terrible. Here's some times on how to force users to provide a reason when they are rejecting an approval request in ServiceNow.
+description: Getting your approval request rejected without any reason feels terrible. Why was it rejected? What should I change? Did I miss something? Here's some ways to force approvers to provide a reason when they are rejecting an approval request in ServiceNow.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2025-05-16
