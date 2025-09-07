@@ -49,7 +49,7 @@ I like this approach because:
 
 #### 1. Creating the event
 Create a new event to use in the reminders. 
-**Name:** "approvals.reminder"
+**Name:** "approval.reminder"
 **Table:** User \[sys_user\]
 **(Optional) Fired by:** Scheduled script job
 
