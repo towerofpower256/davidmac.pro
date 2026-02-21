@@ -22,27 +22,47 @@ In the ServiceNow CMDB, there are 3 fields you would think will allow you to do 
 * Classification 
 * Environment 
 
-They look the same **but which one should you use?**
-
 [![The fields in a list](screenshot-fields-list.png)](screenshot-fields-list.png)
 
-> You should use the **"Environment"** field. This is the field ServiceNow recommends you use to denote to denote a CI's environment
+They look the same **but which one should you use?**
+
+## Use the Environment field
+You should use the **"Environment"** field. This is the field that ServiceNow recommends you use to denote to denote a CI's environment.
+
+This is further reinforced by by the Service Builder, which wants you to use the "Environment" field.
+
+[![New Application Service form wants to use Environment](screenshot-new-service-form.png)](screenshot-new-service-form.png)
 
 ServiceNow describes the **Used for** field as a legacy field. I wouldn't recommend using it. 
+
+This was confirmed by Scott Lemm, the Product Owner for the ServiceNow CMDB in this SN Community discussion.
+> * used_for is a legacy attribute in ServiceNow CMDB and not present on all CMDB classes
+> * The used_for label is quite possibly the worst label in all of ServiceNow CMDB. The industry refers to this data as "Environment". Due to the poor name, many customers didn't know this attribute existed. The #1 custom created attribute in ServiceNow CMDB is "Environment". 
+> * The oob Environment attribute is our effort to right a wrong by providing an object that is available on all CMDB classes and labeled appropriately as "Environment". 
+> Eventually, after customers have migrated from used_for to environment, we will deprecate the legacy used_for object. We recommend you utilize "Environment" in your operations.
+https://www.servicenow.com/community/common-service-data-model-forum/application-service-class-quot-used-for-quot-vs-quot-environment/m-p/333595
+
+This is also confirmed by other sources:
 * [SN Support KB1115829](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB1115829) 
 * [SN Community - Difference between Classification, Environment, and Used For](https://www.servicenow.com/community/cmdb-forum/difference-between-classification-environment-and-used-for/td-p/3299519) 
 
 The **Classification** field is intended to be used in combination with the **Environment** field. 
-For example, you could have a Server CI in "Development" **Environment** the is **Classified** as "Disaster recovery".
+E.g. **Environment** = "Development", **Classification** = "Disaster recovery"
 
-However, I must admit that I don't understand how a Server CI could have an **Environment** of "Production" and a **Classification** of "Development", that doesn't make sense. 
+However, it's possible for combination to not make sense, such as:
+**Environment** = "Development", **Classification** = "Testing"
+Use your common sense with these fields. 
 
-## Custom environment choice 
+## Adding more environment choices
 What if you want to have more types of environment choices in the "Environment" field? Just add them! 
 
 First, consider **copying** from the existing choices on the **Used for** field. Chances are good that the environment name you are after is one of those out-of-the-box choices. 
 
-Otherwise, there shouldn't be an technical issues caused by creating additional environment choices. Normal rules apply: don't create choices whimsically, make sure it fits your own Data Governance. 
+[![Choices for the Used For field](screenshot-used-for-choices.png)](screenshot-used-for-choices.png)
+
+Otherwise, there shouldn't be an technical issues caused by creating additional environment choices. 
+
+Normal development rules apply: don't create choices whimsically, make sure it fits your own Data Governance. 
 
 ## Comparing the fields 
 |-| Environment | Used for | Classification | 
