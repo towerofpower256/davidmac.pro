@@ -6,6 +6,7 @@ imageThumbnail: featured-thumbnail.jpg
 date: 2024-06-24
 tags:
 - ServiceNow
+- CMDB
 ---
 
 ## The problem

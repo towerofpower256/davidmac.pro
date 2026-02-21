@@ -6,6 +6,7 @@ imageThumbnail: featured-thumbnail.jpg
 date: 2025-03-24
 tags:
 - ServiceNow
+- CMDB
 eleventyExcludeFromCollections: false
 ---
 

@@ -9,6 +9,7 @@ tags:
 - Solution
 - Coding
 - Opinion
+- CMDB
 eleventyExcludeFromCollections: false
 ---
 

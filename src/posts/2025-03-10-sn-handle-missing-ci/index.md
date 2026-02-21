@@ -7,6 +7,7 @@ date: 2025-03-10
 tags:
 - ServiceNow
 - Solution
+- CMDB
 eleventyExcludeFromCollections: false
 ---
 
