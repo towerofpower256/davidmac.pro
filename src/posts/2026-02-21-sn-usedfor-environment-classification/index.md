@@ -1,6 +1,6 @@
 ---
-title: Environment vs Used For vs Classification in the CMDB
-description: "So you want to denote that a Server in a Development server in the ServiceNow CMDB. At first glance, there's 3 different fields you could use: Environment, Used For, and Classification. Here's a guide on which one to use and why."
+title: CI Fields - Environment vs Used For vs Classification
+description: "So you want to mark a Server in the ServiceNow CMDB as a DEV or a TEST server. At first glance, there's 3 different fields you could use: Environment, Used For, and Classification. Here's a guide on which one to use and why."
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2026-02-21
