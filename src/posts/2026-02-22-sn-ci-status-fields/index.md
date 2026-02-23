@@ -85,6 +85,34 @@ The status mapping between Asset and CI is configured using the table "Asset CI 
 Here's a list of Install Status states and substates from SN Docs. 
 https://www.servicenow.com/docs/r/it-asset-management/asset-management/t_SettingAssetStatesAndSubstates.html
 
+### Life Cycle Stage & Status 
+Introduced in release of the **CSDM** plugin around the Rome release of ServiceNow, the **Life Cycle Stage** fields are replacements for the original Status fields (referred to as "legacy status fields"), including:
+* Operational Status
+* Install Status
+* Hardware Status
+
+These Life Cycle Stage fields align closely to the CSDM model and are available on all CIs including some tables withing the Foundation Data domain (e.g. Locations).
+
+ServiceNow recommends migrating from the "legacy status fields" to the CSDM Life Cycle fields when implementing CSDM, and includes migration utilities to aid in the switch.
+
+[![CI form with the CSDM Life Cycle fields added](screenshot-life-cycle-fields.jpeg)](screenshot-life-cycle-fields.jpeg)
+
+Not to be confused with the **CMDB CI Lifecycle Management** utility which is now deprecated.
+https://www.servicenow.com/docs/r/servicenow-platform/configuration-management-database-cmdb/cmdb-ci-lifecycle-mgmt.html
+
+Here are some resources for those interested in migrating from the Status fields to the CSDM Life Cycle fields.
+* MyNow - CMDB - Lifecycle Stage and Status
+ https://mynow.service-now.com/now/best-practices/assets/cmdb-lifecycle-stage-and-status
+* SN Community discussion on the CI Life Cycle fields including SN employees and SN Community veterans.
+ LifeCycle stage vs Status
+ https://www.servicenow.com/community/cmdb-forum/lifecycle-stage-vs-status/m-p/245071 
+* SN Docs - Activate life cycle migration
+ https://www.servicenow.com/docs/r/washingtondc/servicenow-platform/common-service-data-model-csdm/activate-life-cycle-migration.html
+* SN Docs - CMDB Data Management (talks about managing the CI Life Cycle fields)
+ https://www.servicenow.com/docs/r/washingtondc/servicenow-platform/configuration-management-database-cmdb/cmdb-data-management.html
+* SN Docs - Definition of life-cycle values for tangible/physical CIs
+ https://www.servicenow.com/docs/r/servicenow-platform/common-service-data-model-csdm/csdm-lifecycle-df-tangible-physical.html
+
 ## Other status fields 
 ### Hardware Status & Substatus 
 https://www.servicenow.com/docs/r/washingtondc/servicenow-platform/configuration-management-database-cmdb/class-hardware.html 
@@ -114,14 +142,3 @@ The CI Attestation feature enables users to "attest" their CIs. As CIs are impor
 
 SN Docs – CI Attestation 
 https://www.servicenow.com/docs/r/washingtondc/servicenow-platform/configuration-management-database-cmdb/attesting-cis.html  
-
-### Life Cycle Stage & Status 
-Introduced in early CSDM releases around the Rome release of ServiceNow, the fields are now considered legacy as of the Yokohama release. Maybe don't use it. 
-
-The CI Life Cycle section is now marked as "(legacy)" in the ServiceNow Docs. 
-
-[![SN Docs showing the Life Cycle fields as legacy](sn-docs-life-cycle-legacy.png)](sn-docs-life-cycle-legacy.png)
-
-The CI Life Cycle fields are discussed by SN Community veterans here in this Community discussion.
-LifeCycle stage vs Status
-https://www.servicenow.com/community/cmdb-forum/lifecycle-stage-vs-status/m-p/245071 
