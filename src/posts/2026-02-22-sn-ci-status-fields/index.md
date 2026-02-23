@@ -1,6 +1,6 @@
 ---
 title: CI Operational Status vs Install Status in the CMDB
-description: You want to set the Status of a CI in the ServiceNow CMDB, but you find a handful of different fields with Status in the name. It's not always clear which one you should be using just by looking at them. Here's which one you should use, and what all the other Status fields mean.
+description: You want to set the Status of a CI in the ServiceNow CMDB, but you find a handful of different fields with Status in the name. Operational Status, Install Status, Hardware Status, Life Cycle Stage... It's not always clear which one you should be using just by looking at them. Here's which one you should use, and what all the other Status fields mean.
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2026-02-21
