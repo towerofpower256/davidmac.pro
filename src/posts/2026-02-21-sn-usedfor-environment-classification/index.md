@@ -27,7 +27,8 @@ In the ServiceNow CMDB, there are 3 fields you would think will allow you to do 
 They look the same **but which one should you use?**
 
 ## Use the Environment field
-You should use the **"Environment"** field. This is the field that ServiceNow recommends you use to denote to denote a CI's environment.
+[![Meme drake](meme-drake.jpeg)](meme-drake.jpeg)
+ServiceNow recommends the **"Environment"** field to denote a CI's environment.
 
 This is further reinforced by by the Service Builder, which wants you to use the "Environment" field.
 
@@ -35,7 +36,7 @@ This is further reinforced by by the Service Builder, which wants you to use the
 
 ServiceNow describes the **Used for** field as a legacy field. I wouldn't recommend using it. 
 
-This was confirmed by Scott Lemm, the Product Owner for the ServiceNow CMDB in this SN Community discussion.
+This was confirmed in this SN Community discussion by [Scott Lemm](https://www.linkedin.com/in/scottlemm/), the Product Owner for the ServiceNow CMDB.
 > * used_for is a legacy attribute in ServiceNow CMDB and not present on all CMDB classes
 > * The used_for label is quite possibly the worst label in all of ServiceNow CMDB. The industry refers to this data as "Environment". Due to the poor name, many customers didn't know this attribute existed. The #1 custom created attribute in ServiceNow CMDB is "Environment". 
 > * The oob Environment attribute is our effort to right a wrong by providing an object that is available on all CMDB classes and labeled appropriately as "Environment". 
