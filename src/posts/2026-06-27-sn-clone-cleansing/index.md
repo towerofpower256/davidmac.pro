@@ -1,6 +1,6 @@
 ---
 title: "How To Protect Your Data In ServiceNow Non-Prod Instances"
-description: 
+description: Your data is protected and secure in your ServiceNow PROD instance, but what about in DEV and TEST? Most of the time, the data is cloned down from one instance to another including User data HR Cases, and developers in DEV likely have unrestricted access to everything. Here's some tips on sanitising data to prevent unauthorised access to sensitive data in non-PROD environments. 
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2026-06-27
@@ -149,11 +149,100 @@ while (grHRC.next()) {
 ``` 
  
 ### Obfuscate 
-Here's an example post-clone cleanup script to obfuscate User [sys_user] data after a clone. 
- 
-```js 
+I haven't come across a recommended script or solution for obfuscating data in a post-clone script.
 
-``` 
+It would depend on **how** you'd like to obfuscate data.
+* Do you just clear the data? Then simply set those fields to "(empty)" or "(redacted)".
+ E.g. Clear the 'Mobile phone' field for all users.
+* Do you want to replace the data with placeholder data? Replace what's in the fields with automatically generated placeholders. (e.g. random numbers).
+ E.g. Replace the "Short description" and all notes for all HR cases with lorem ipsum. Here's an example Codepen with a lorem ipsum generator without any dependancies. https://codepen.io/codewithfaraz/pen/OJaVNWG
+
+```js
+function generateLoremText(numParagraphs, numWords) {
+  var loremText = '';
+  var words = [
+    'Lorem',
+    'ipsum',
+    'dolor',
+    'sit',
+    'amet',
+    'consectetur',
+    'adipiscing',
+    'elit',
+    'sed',
+    'do',
+    'eiusmod',
+    'tempor',
+    'incididunt',
+    'ut',
+    'labore',
+    'et',
+    'dolore',
+    'magna',
+    'aliqua',
+    'Ut',
+    'enim',
+    'ad',
+    'minim',
+    'veniam',
+    'quis',
+    'nostrud',
+    'exercitation',
+    'ullamco',
+    'laboris',
+    'nisi',
+    'ut',
+    'aliquip',
+    'ex',
+    'ea',
+    'commodo',
+    'consequat',
+    'Duis',
+    'aute',
+    'irure',
+    'dolor',
+    'in',
+    'reprehenderit',
+    'in',
+    'voluptate',
+    'velit',
+    'esse',
+    'cillum',
+    'dolore',
+    'eu',
+    'fugiat',
+    'nulla',
+    'pariatur',
+    'Excepteur',
+    'sint',
+    'occaecat',
+    'cupidatat',
+    'non',
+    'proident',
+    'sunt',
+    'in',
+    'culpa',
+    'qui',
+    'officia',
+    'deserunt',
+    'mollit',
+    'anim',
+    'id',
+    'est',
+    'laborum',
+  ];
+
+  for (var i = 0; i < numParagraphs; i++) {
+    var paragraph = '';
+    for (var j = 0; j < numWords; j++) {
+      var randomWord = words[Math.floor(Math.random() * words.length)];
+      paragraph += randomWord + ' ';
+    }
+    loremText += '<p>' + paragraph + '</p>';
+  }
+  return loremText;
+}
+```
  
 ## Using the Data Privacy plugin 
 Looks like ServiceNow has brought out a plugin for just this purpose called "Data Privacy". 
