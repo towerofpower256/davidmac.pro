@@ -62,6 +62,25 @@ Heck, there's a lot of discussion from Obsidian users about which storage layout
 
 But for now, I'll stick with the storage layout that I've got. I'll look at changing once I get settled into Obsidian.
 
+### Searching is good
+OneNote's search was good as searching across all of your notes, looking for anything related. Sadly, the web version of OneNote can only search the page or the section, not across all notebooks.
+
+[![OneNote web searching section](onenote-web-search-section.png)](onenote-web-search-section.png)
+
+Although the full version of OneNote can search for text in images, the web version cannot.
+
+Obsidian is similar, you can search the entire vault for matches. 
+
+[![Obsidian search results](obsidian-search-results.png)](obsidian-search-results.png)
+
+I'm not a fan of seeing every result, I like the option to **Collapse results**.
+
+[![Obsidian search with collapsed results](obsidian-search-collapsed.png)](obsidian-search-collapsed.png)
+
+With the **Omnisearch** plugin, the search can do even more, including finding text matches within images and PDF documents.
+
+[![Obsidian Omnisearch](obsidian-omnisearch.png)](obsidian-omnisearch.png)
+
 ### Very available
 Obsidian has clients for all sorts of platforms, including:
 * Windows
