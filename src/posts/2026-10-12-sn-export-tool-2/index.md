@@ -1,6 +1,6 @@
 ---
 title: "Dave's ServiceNow Export Tool"
-description: Save yourself some time, and don't spend hours exporting large exports of data out of ServiceNow like I did. To help me out, I wrote a cool little tool to export large amounts of data out of ServiceNow all at once, instead of combining smaller exports from the same table one-at-a-time. Now new and improved!
+description: Save yourself some time, and don't spend hours exporting large exports of data out of ServiceNow like I did. I wrote a cool little tool to export large amounts of data out of ServiceNow all at once, instead of manually pulling smaller exports from ServiceNow one-at-a-time. Now new and improved!
 image: featured.jpg
 imageThumbnail: featured-thumbnail.jpg
 date: 2026-10-12
